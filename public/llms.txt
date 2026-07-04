@@ -1,0 +1,25 @@
+# Chaichana Sudjairak (James)
+
+> AI-focused Full Stack Developer from Thailand building practical web products, data visualizations, automation tools, and real-time collaborative systems. 5+ years delivering end-to-end across React, React Native, Node.js, TypeScript, and Go.
+
+This is the project hub at https://sudjairakc.github.io — a showcase of three flagship projects.
+
+## Projects
+
+- [Portfolio](https://sudjairakc.github.io/portfolio): Personal developer portfolio built with Astro 5 and Tailwind CSS v4. Presents skills, experience, education, projects, resume, and contact. Repo: https://github.com/sudjairakc/portfolio
+- [BKK Election 65 → 69 Results Compare](https://sudjairakc.github.io/bkk-election-69-results-compare): Interactive data visualization comparing Bangkok council (ส.ก.) election winners across all 50 districts from 2022 (2565) to 2026 (2569). Includes Sankey, bar charts, district grid, dumbbell chart, 2×2 matrix, and a sortable/searchable table. Built with Astro, TypeScript, vanilla DOM, and SVG. Repo: https://github.com/sudjairakc/bkk-election-69-results-compare
+- [SyncTune](https://synctune-frontend.vercel.app): Real-time collaborative music room. Friends join with a name and room ID (no login), queue YouTube videos, chat, vote to skip/remove, use a sound pad, and talk with push-to-talk voice. Frontend: Svelte + Vite + YouTube IFrame API + WebSocket + WebRTC. Backend: Go, Melody WebSocket, Redis as single source of truth, zerolog. Frontend repo: https://github.com/sudjairakc/synctune-frontend — Backend repo: https://github.com/sudjairakc/synctune-backend
+
+## Skills
+
+- Languages: TypeScript, JavaScript (ES6+), Go
+- Frontend: Astro, Svelte, React, React Native, Next.js, Tailwind CSS
+- Backend & Real-time: Node.js, WebSocket, WebRTC, Redis, REST API
+- Data: Data visualization, SVG, interactive tables
+- Infra: GitHub Actions, GitHub Pages, Vercel, Docker, PostgreSQL, MariaDB, MongoDB, AWS
+
+## Contact
+
+- GitHub: https://github.com/sudjairakc
+- LinkedIn: https://www.linkedin.com/in/chaichana-sudjairak/
+- Email: sudjairak.c@gmail.com

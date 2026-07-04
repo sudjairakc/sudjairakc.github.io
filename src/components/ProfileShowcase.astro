@@ -1,0 +1,179 @@
+---
+import { site, socials } from "@data/site";
+
+const points = [
+  "Presents professional profile, skills, education, work experience, projects, and contact.",
+  "Uses Astro static generation for speed and GitHub Pages deployment.",
+  "Uses Tailwind CSS v4 for a modern responsive interface.",
+  "Includes dark mode, splash screen, social links, and resume access.",
+];
+
+const skills = [
+  "React",
+  "React Native",
+  "Node.js",
+  "TypeScript",
+  "Go",
+  "Next.js",
+];
+
+const stats = ["5+ yrs experience", "End-to-end delivery"];
+---
+
+<section class="section reveal grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+  <!-- LEFT: copy -->
+  <div>
+    <span class="eyebrow">
+      <span class="inline-block h-2 w-2 rounded-full bg-sky-400"></span>
+      01 · Portfolio
+    </span>
+
+    <h2
+      class="mt-6 text-3xl font-extrabold leading-[1.12] tracking-tight sm:text-4xl lg:text-[2.6rem]"
+    >
+      A developer profile built to communicate
+      <span class="gradient-text">capability</span>, speed, and ownership.
+    </h2>
+
+    <p
+      class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300"
+    >
+      The portfolio site introduces James as a full stack developer with
+      experience across frontend, mobile, backend, data, and infrastructure. It
+      is built with Astro and Tailwind, optimized as a static site, and
+      structured so profile content can be updated from a single data source.
+    </p>
+
+    <ul class="mt-8 space-y-3.5">
+      {
+        points.map((point) => (
+          <li class="flex items-start gap-3">
+            <span
+              class="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-gradient-to-br from-sky-400 to-violet-500 text-white shadow-sm shadow-sky-500/30"
+              aria-hidden="true"
+            >
+              <svg viewBox="0 0 20 20" class="h-3 w-3 fill-current">
+                <path d="M8.1 13.2 4.9 10l-1.2 1.2 4.4 4.4 8.2-8.2-1.2-1.2z" />
+              </svg>
+            </span>
+            <span class="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              {point}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="mt-9 flex flex-wrap items-center gap-3">
+      <a
+        href="https://sudjairakc.github.io/portfolio"
+        target="_blank"
+        rel="noopener"
+        class="btn-primary"
+      >
+        Open Website
+      </a>
+      <a
+        href="https://github.com/sudjairakc/portfolio"
+        target="_blank"
+        rel="noopener"
+        class="btn-ghost"
+      >
+        View Repository
+      </a>
+    </div>
+  </div>
+
+  <!-- RIGHT: floating glass profile-product mockup -->
+  <div class="relative mx-auto w-full max-w-md lg:max-w-none">
+    <!-- Blue/slate glow blob behind the mockup -->
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+      <div
+        class="blob absolute -left-6 top-4 h-64 w-64 rounded-full bg-sky-300/40 blur-3xl dark:bg-blue-500/25"
+      >
+      </div>
+      <div
+        class="blob absolute -right-4 bottom-2 h-56 w-56 rounded-full bg-slate-300/45 blur-3xl dark:bg-slate-500/20"
+        style="animation-delay: -6s;"
+      >
+      </div>
+    </div>
+
+    <div class="glass float-slow relative p-6 sm:p-7" aria-hidden="true">
+      <!-- Header: avatar + name -->
+      <div class="flex items-center gap-4">
+        <div
+          class="flex h-14 w-14 flex-none items-center justify-center rounded-2xl bg-gradient-to-br from-sky-400 to-violet-500 font-mono text-lg font-bold text-white shadow-lg shadow-sky-500/30"
+        >
+          {"</>"}
+        </div>
+        <div>
+          <p class="font-mono text-base font-semibold">&lt; ChaichanaS /&gt;</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Full Stack Developer · Thailand
+          </p>
+        </div>
+      </div>
+
+      <!-- Skill pills -->
+      <div class="mt-6 flex flex-wrap gap-1.5">
+        {skills.map((s) => <span class="pill !px-2.5 !py-1 !text-[0.72rem]">{s}</span>)}
+      </div>
+
+      <!-- Social icon dots -->
+      <div class="mt-6 flex items-center gap-2.5">
+        <span
+          class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100/80 text-slate-500 dark:bg-white/10 dark:text-slate-300"
+        >
+          <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current">
+            <path
+              d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.22-3.37-1.22-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.05.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"
+            ></path>
+          </svg>
+        </span>
+        <span
+          class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100/80 text-slate-500 dark:bg-white/10 dark:text-slate-300"
+        >
+          <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current">
+            <path
+              d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3 9h4v12H3V9zm7 0h3.8v1.64h.05c.53-1 1.83-2.06 3.76-2.06 4.02 0 4.76 2.65 4.76 6.1V21h-4v-5.37c0-1.28-.02-2.93-1.78-2.93-1.79 0-2.06 1.4-2.06 2.84V21h-4V9z"
+            ></path>
+          </svg>
+        </span>
+        <span
+          class="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100/80 text-slate-500 dark:bg-white/10 dark:text-slate-300"
+        >
+          <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current">
+            <path
+              d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm2.4.2 7.6 5.3 7.6-5.3H4.4zM20 8.1l-8 5.6-8-5.6V18h16V8.1z"
+            ></path>
+          </svg>
+        </span>
+      </div>
+
+      <!-- Faux resume button -->
+      <div
+        class="mt-6 flex items-center justify-center gap-2 rounded-full border border-slate-200/70 bg-white/50 py-2.5 text-sm font-semibold text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
+      >
+        <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current">
+          <path d="M12 3v10.6l3.3-3.3 1.4 1.4L12 17.4l-4.7-4.7 1.4-1.4L12 13.6V3h0zM5 19h14v2H5z"></path>
+        </svg>
+        Resume
+      </div>
+
+      <!-- Stat lines -->
+      <div class="mt-5 grid grid-cols-2 gap-3">
+        {
+          stats.map((stat) => (
+            <div class="rounded-2xl border border-slate-200/60 bg-white/40 px-3 py-2.5 dark:border-white/10 dark:bg-white/5">
+              <p class="flex items-center gap-1.5 text-[0.72rem] font-medium text-slate-600 dark:text-slate-300">
+                <span class="inline-block h-1.5 w-1.5 flex-none rounded-full bg-sky-400" />
+                {stat}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

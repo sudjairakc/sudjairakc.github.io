@@ -1,0 +1,32 @@
+---
+// Featured projects grid (brief §6). Three showcase cards.
+import { projects } from "@data/projects";
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<section id="projects" class="section reveal">
+  {/* Heading block */}
+  <div class="max-w-3xl">
+    <span class="eyebrow">Selected work</span>
+    <h2
+      class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl"
+    >
+      Three projects, three <span class="gradient-text">product angles</span>.
+    </h2>
+    <p class="mt-4 text-base leading-relaxed text-slate-500 dark:text-slate-400">
+      A professional developer profile, a civic data visualization, and a
+      real-time collaborative music app.
+    </p>
+  </div>
+
+  {/* Grid */}
+  <div class="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
+    {
+      projects.map((project, i) => (
+        <div class="reveal h-full" style={`transition-delay:${i * 120}ms`}>
+          <ProjectCard project={project} />
+        </div>
+      ))
+    }
+  </div>
+</section>
