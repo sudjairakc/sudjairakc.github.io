@@ -1,5 +1,8 @@
 ---
 import { site, socials } from "@data/site";
+import { getContent } from "@data/i18n";
+
+const t = getContent(Astro.currentLocale);
 
 const socialLinks = [
   {
@@ -51,7 +54,7 @@ const socialLinks = [
         <span class="text-slate-400 dark:text-slate-500">/&gt;</span>
       </a>
       <p class="mt-1.5 text-sm text-slate-500 dark:text-slate-400">
-        {site.role} · {site.location}
+        {t.common.role} · {t.common.location}
       </p>
     </div>
 
@@ -83,7 +86,7 @@ const socialLinks = [
 
   <div class="section !py-0 !pb-8">
     <p class="text-center text-xs text-slate-400 dark:text-slate-500 sm:text-left">
-      © 2026 {site.name}. Built with Astro & Tailwind.
+      {t.footer.copyright}
     </p>
   </div>
 </footer>

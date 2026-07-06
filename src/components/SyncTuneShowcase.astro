@@ -2,12 +2,8 @@
 // Project Deep-Dive 03 — SyncTune (brief §6.6).
 // Two-column: text + a large glass media-player mockup. Playful violet/cyan/pink glow.
 
-const keyPoints = [
-  "Real-time shared music queue with YouTube playback.",
-  "No account required: users join with a name and room ID.",
-  "Chat, online users, queue history, sound pad, vote modal, and voice PTT.",
-  "Backend handles multi-room state, WebSocket broadcasting, Redis persistence, and WebRTC signaling.",
-];
+import { getContent } from "@data/i18n";
+const t = getContent(Astro.currentLocale);
 
 // Equalizer bar heights (%). Repeats give a wave-like silhouette.
 const bars = [38, 62, 88, 54, 72, 96, 44, 80, 60, 92, 48, 70, 86, 52, 64, 90, 40, 74];
@@ -31,25 +27,21 @@ const avatars = [
   <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
     <!-- ── LEFT: text ─────────────────────────────────────────────────── -->
     <div>
-      <span class="eyebrow">03 · Real-time Collaboration</span>
+      <span class="eyebrow">{t.synctune.eyebrow}</span>
 
-      <h2 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-        A shared music room powered by
-        <span class="gradient-text">WebSocket</span>, WebRTC, and Redis.
-      </h2>
+      <h2
+        class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl"
+        set:html={t.synctune.headingHtml}
+      />
 
       <p class="mt-5 text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-400">
-        SyncTune is an experimental real-time music collaboration app. Users can
-        create a room, add YouTube videos to a shared queue, chat with others,
-        vote on playback actions, trigger sound effects, and use push-to-talk
-        voice. The frontend is built with Svelte and Vite, while the backend uses
-        Go, WebSocket broadcasting, and Redis as the single source of truth.
+        {t.synctune.intro}
       </p>
 
       <!-- Key points -->
       <ul class="mt-8 space-y-4">
         {
-          keyPoints.map((point) => (
+          t.synctune.points.map((point) => (
             <li class="flex items-start gap-3">
               <span
                 aria-hidden="true"
@@ -81,7 +73,7 @@ const avatars = [
           rel="noopener"
           class="btn-primary"
         >
-          Open Website
+          {t.synctune.openWebsite}
           <svg viewBox="0 0 20 20" class="h-4 w-4" fill="none" aria-hidden="true">
             <path d="M7 13 13 7M8 7h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
@@ -92,7 +84,7 @@ const avatars = [
           rel="noopener"
           class="btn-ghost"
         >
-          Frontend Repo
+          {t.synctune.frontendRepo}
         </a>
         <a
           href="https://github.com/sudjairakc/synctune-backend"
@@ -100,7 +92,7 @@ const avatars = [
           rel="noopener"
           class="btn-ghost"
         >
-          Backend Repo
+          {t.synctune.backendRepo}
         </a>
       </div>
     </div>

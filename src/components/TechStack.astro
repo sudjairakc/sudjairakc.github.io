@@ -1,21 +1,22 @@
 ---
 // Tech stack cloud, grouped (brief §6.8).
 import { techGroups } from "@data/site";
+import { getContent } from "@data/i18n";
+
+const t = getContent(Astro.currentLocale);
 ---
 
 <section id="stack" class="section reveal">
   <!-- Heading -->
   <div class="max-w-3xl">
-    <span class="eyebrow">Tech stack</span>
-    <h2 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-      The <span class="gradient-text">tools</span> behind the work.
-    </h2>
+    <span class="eyebrow">{t.stack.eyebrow}</span>
+    <h2 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl" set:html={t.stack.headingHtml} />
   </div>
 
   <!-- Group cards -->
   <div class="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
     {
-      techGroups.map((group) => (
+      techGroups.map((group, i) => (
         <article class="glass relative isolate overflow-hidden p-6 sm:p-7">
           {/* Soft group glow */}
           <div
@@ -25,7 +26,7 @@ import { techGroups } from "@data/site";
 
           {/* Label */}
           <h3 class="text-lg font-semibold tracking-tight text-slate-900 dark:text-white">
-            {group.label}
+            {t.stack.groups[i].label}
           </h3>
 
           {/* Items */}

@@ -1,12 +1,6 @@
 ---
-import { site, socials } from "@data/site";
-
-const points = [
-  "Presents professional profile, skills, education, work experience, projects, and contact.",
-  "Uses Astro static generation for speed and GitHub Pages deployment.",
-  "Uses Tailwind CSS v4 for a modern responsive interface.",
-  "Includes dark mode, splash screen, social links, and resume access.",
-];
+import { getContent } from "@data/i18n";
+const t = getContent(Astro.currentLocale);
 
 const skills = [
   "React",
@@ -16,8 +10,6 @@ const skills = [
   "Go",
   "Next.js",
 ];
-
-const stats = ["5+ yrs experience", "End-to-end delivery"];
 ---
 
 <section class="section reveal grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -25,28 +17,23 @@ const stats = ["5+ yrs experience", "End-to-end delivery"];
   <div>
     <span class="eyebrow">
       <span class="inline-block h-2 w-2 rounded-full bg-sky-400"></span>
-      01 · Portfolio
+      {t.profile.eyebrow}
     </span>
 
     <h2
       class="mt-6 text-3xl font-extrabold leading-[1.12] tracking-tight sm:text-4xl lg:text-[2.6rem]"
-    >
-      A developer profile built to communicate
-      <span class="gradient-text">capability</span>, speed, and ownership.
-    </h2>
+      set:html={t.profile.headingHtml}
+    />
 
     <p
       class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300"
     >
-      The portfolio site introduces James as a full stack developer with
-      experience across frontend, mobile, backend, data, and infrastructure. It
-      is built with Astro and Tailwind, optimized as a static site, and
-      structured so profile content can be updated from a single data source.
+      {t.profile.intro}
     </p>
 
     <ul class="mt-8 space-y-3.5">
       {
-        points.map((point) => (
+        t.profile.points.map((point) => (
           <li class="flex items-start gap-3">
             <span
               class="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-gradient-to-br from-sky-400 to-violet-500 text-white shadow-sm shadow-sky-500/30"
@@ -71,7 +58,7 @@ const stats = ["5+ yrs experience", "End-to-end delivery"];
         rel="noopener"
         class="btn-primary"
       >
-        Open Website
+        {t.profile.openWebsite}
       </a>
       <a
         href="https://github.com/sudjairakc/portfolio"
@@ -79,7 +66,7 @@ const stats = ["5+ yrs experience", "End-to-end delivery"];
         rel="noopener"
         class="btn-ghost"
       >
-        View Repository
+        {t.profile.viewRepository}
       </a>
     </div>
   </div>
@@ -110,7 +97,7 @@ const stats = ["5+ yrs experience", "End-to-end delivery"];
         <div>
           <p class="font-mono text-base font-semibold">&lt; ChaichanaS /&gt;</p>
           <p class="text-xs text-slate-500 dark:text-slate-400">
-            Full Stack Developer · Thailand
+            {t.profile.cardRole}
           </p>
         </div>
       </div>
@@ -164,7 +151,7 @@ const stats = ["5+ yrs experience", "End-to-end delivery"];
       <!-- Stat lines -->
       <div class="mt-5 grid grid-cols-2 gap-3">
         {
-          stats.map((stat) => (
+          t.profile.stats.map((stat) => (
             <div class="rounded-2xl border border-slate-200/60 bg-white/40 px-3 py-2.5 dark:border-white/10 dark:bg-white/5">
               <p class="flex items-center gap-1.5 text-[0.72rem] font-medium text-slate-600 dark:text-slate-300">
                 <span class="inline-block h-1.5 w-1.5 flex-none rounded-full bg-sky-400" />

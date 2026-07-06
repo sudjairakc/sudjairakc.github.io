@@ -1,12 +1,14 @@
 ---
 // One project shown as a frosted glass card with a themed mini mockup.
 import type { Project } from "@data/projects";
+import { getContent } from "@data/i18n";
 
 interface Props {
   project: Project;
 }
 
 const { project } = Astro.props;
+const t = getContent(Astro.currentLocale);
 ---
 
 <article
@@ -157,7 +159,7 @@ const { project } = Astro.props;
         target="_blank"
         rel="noopener noreferrer"
       >
-        Open Website
+        {t.projectCard.openWebsite}
       </a>
       {
         project.repos.map((repo) => (

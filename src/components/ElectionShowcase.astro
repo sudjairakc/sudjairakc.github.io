@@ -1,17 +1,6 @@
 ---
-const points = [
-  "Compares 50 Bangkok districts between 2022 and 2026.",
-  "Shows district-level winner changes and party/group movement.",
-  "Includes Sankey, bar charts, grid map, dumbbell chart, matrix, and sortable table.",
-  "Built with Astro, TypeScript, vanilla DOM, and SVG without a heavy runtime framework.",
-];
-
-const stats = [
-  { value: "50", label: "districts" },
-  { value: "65 → 69", label: "seats compared" },
-  { value: "27", label: "changed hands" },
-  { value: "32", label: "repeat winners" },
-];
+import { getContent } from "@data/i18n";
+const t = getContent(Astro.currentLocale);
 
 // Pastel "party" palette — ~6 colors distributed across 50 district cells.
 const partyColors = [
@@ -46,29 +35,23 @@ const bars = [
   <div>
     <span class="eyebrow">
       <span class="inline-block h-2 w-2 rounded-full bg-orange-400"></span>
-      02 · Data Visualization
+      {t.election.eyebrow}
     </span>
 
     <h2
       class="mt-6 text-3xl font-extrabold leading-[1.1] tracking-tight sm:text-4xl lg:text-[2.75rem]"
-    >
-      Turning complex election results into
-      <span class="gradient-text">visual stories</span> people can scan.
-    </h2>
+      set:html={t.election.headingHtml}
+    />
 
     <p
       class="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300"
     >
-      This project compares Bangkok council election results from 2022 to 2026
-      across all 50 districts. It translates political and district-level changes
-      into interactive visualizations, including party seat comparison, district
-      maps, Sankey-style transitions, searchable tables, and score movement
-      charts.
+      {t.election.intro}
     </p>
 
     <ul class="mt-8 space-y-3.5">
       {
-        points.map((point) => (
+        t.election.points.map((point) => (
           <li class="flex items-start gap-3">
             <span
               class="mt-1 h-2.5 w-2.5 flex-none rounded-sm bg-gradient-to-br from-orange-400 via-sky-400 to-emerald-400 shadow-sm"
@@ -85,7 +68,7 @@ const bars = [
     <!-- BIG editorial stat numbers -->
     <dl class="mt-9 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
       {
-        stats.map((stat) => (
+        t.election.stats.map((stat) => (
           <div>
             <dt class="text-3xl font-extrabold tracking-tight sm:text-[2.1rem]">
               {stat.value}
@@ -105,7 +88,7 @@ const bars = [
         rel="noopener"
         class="btn-primary"
       >
-        Open Website
+        {t.election.openWebsite}
       </a>
       <a
         href="https://github.com/sudjairakc/bkk-election-69-results-compare"
@@ -113,7 +96,7 @@ const bars = [
         rel="noopener"
         class="btn-ghost"
       >
-        View Repository
+        {t.election.viewRepository}
       </a>
     </div>
   </div>

@@ -1,6 +1,8 @@
 ---
 // AI workflow / build philosophy section (brief §6.7).
-import { philosophy } from "@data/site";
+import { getContent } from "@data/i18n";
+
+const t = getContent(Astro.currentLocale);
 
 // Per-card accent glow, cycling through the AI palette.
 const accents = [
@@ -14,23 +16,17 @@ const accents = [
 <section id="ai-focus" class="section reveal">
   <!-- Heading -->
   <div class="max-w-3xl">
-    <span class="eyebrow">Build philosophy</span>
-    <h2 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-      <span class="gradient-text">AI-assisted</span>, product-minded engineering
-    </h2>
+    <span class="eyebrow">{t.ai.eyebrow}</span>
+    <h2 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl" set:html={t.ai.headingHtml} />
     <p class="mt-5 text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-400">
-      I use AI as a development multiplier — not just to generate code, but to
-      explore architecture, refine UX, debug faster, and turn rough ideas into
-      shipped products. The projects here reflect a practical workflow: define
-      the problem, shape the interface, build the system, and iterate with real
-      usage.
+      {t.ai.intro}
     </p>
   </div>
 
   <!-- Philosophy cards -->
   <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
     {
-      philosophy.map((item, i) => (
+      t.ai.philosophy.map((item, i) => (
         <article class="glass group relative isolate overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1">
           {/* Subtle per-card accent glow */}
           <div
@@ -56,7 +52,7 @@ const accents = [
           {/* Applies to */}
           <div class="mt-5">
             <span class="pill text-xs">
-              <span class="text-slate-400 dark:text-slate-500">Applies to</span>
+              <span class="text-slate-400 dark:text-slate-500">{t.ai.appliesTo}</span>
               {item.applies}
             </span>
           </div>

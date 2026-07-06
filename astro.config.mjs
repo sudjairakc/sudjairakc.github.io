@@ -5,6 +5,13 @@ import tailwindcss from "@tailwindcss/vite";
 // No `base` needed for a <user>.github.io repo.
 export default defineConfig({
   site: "https://sudjairakc.github.io",
+  i18n: {
+    locales: ["en", "th"],
+    defaultLocale: "en",
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },
