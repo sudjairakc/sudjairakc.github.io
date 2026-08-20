@@ -4,13 +4,13 @@ import type {Content} from "./types";
 
 export const en: Content = {
   meta: {
-    title: "Chaichana Sudjairak — AI-focused Full Stack Developer",
+    title: "Chaichana Sudjairak — AI-focused Senior Full-Stack Developer",
     description:
-      "Project hub of Chaichana Sudjairak, an AI-focused full stack developer building web products, data visualizations, automation tools, and real-time collaborative systems."
+      "Project hub of Chaichana Sudjairak, an AI-focused senior full-stack developer building web products, data visualizations, automation tools, and real-time collaborative systems."
   },
 
   common: {
-    role: "AI-focused Full Stack Developer",
+    role: "AI-focused Senior Full-Stack Developer",
     location: "Thailand"
   },
 
@@ -26,12 +26,12 @@ export const en: Content = {
     headlineHtml:
       'Building <span class="gradient-text">intelligent</span> web products, <span class="gradient-text">data</span> stories, and <span class="gradient-text">real-time</span> systems.',
     intro:
-      "I'm James — a full stack developer turning ideas into practical products across Astro, Svelte, React, Go, TypeScript, data visualization, and real-time collaboration.",
+      "I'm James — a senior full-stack developer turning ideas into practical products across Astro, Svelte, React, Go, TypeScript, data visualization, and real-time collaboration.",
     exploreBtn: "Explore Projects",
     viewGithub: "View GitHub",
     jumpTo: "Jump to:",
     jumpChips: ["Portfolio", "Election Data Viz", "SyncTune"],
-    cardRole: "Full Stack Developer · Thailand"
+    cardRole: "Senior Full-Stack Developer · Thailand"
   },
 
   featured: {
@@ -47,7 +47,7 @@ export const en: Content = {
     headingHtml:
       'A developer profile built to communicate <span class="gradient-text">capability</span>, speed, and ownership.',
     intro:
-      "The portfolio site introduces James as a full stack developer with experience across frontend, mobile, backend, data, and infrastructure. It is built with Astro and Tailwind, optimized as a static site, and structured so profile content can be updated from a single data source.",
+      "The portfolio site introduces James as a senior full-stack developer with experience across frontend, mobile, backend, data, and infrastructure. It is built with Astro and Tailwind, optimized as a static site, and structured so profile content can be updated from a single data source.",
     points: [
       "Presents professional profile, skills, education, work experience, projects, and contact.",
       "Uses Astro static generation for speed and GitHub Pages deployment.",
@@ -56,7 +56,7 @@ export const en: Content = {
     ],
     openWebsite: "Open Website",
     viewRepository: "View Repository",
-    cardRole: "Full Stack Developer · Thailand",
+    cardRole: "Senior Full-Stack Developer · Thailand",
     stats: ["5+ yrs experience", "End-to-end delivery"]
   },
 
@@ -162,7 +162,7 @@ export const en: Content = {
   projects: [
     {
       eyebrow: "Personal Site",
-      title: "Portfolio — Full Stack Developer Profile",
+      title: "Portfolio — Senior Full-Stack Developer Profile",
       shortTitle: "Portfolio",
       description:
         "A clean Astro + Tailwind portfolio presenting skills, experience, education, selected projects, resume, and contact channels.",

@@ -18,7 +18,7 @@ export const projects: Project[] = [
   {
     slug: "portfolio",
     eyebrow: "Personal Site",
-    title: "Portfolio — Full Stack Developer Profile",
+    title: "Portfolio — Senior Full-Stack Developer Profile",
     shortTitle: "Portfolio",
     description:
       "A clean Astro + Tailwind portfolio presenting skills, experience, education, selected projects, resume, and contact channels.",

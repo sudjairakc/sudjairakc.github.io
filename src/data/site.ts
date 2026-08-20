@@ -4,11 +4,11 @@ export const site = {
   name: "Chaichana Sudjairak",
   displayName: "James",
   handle: "ChaichanaS",
-  role: "AI-focused Full Stack Developer",
+  role: "AI-focused Senior Full-Stack Developer",
   location: "Thailand",
-  title: "Chaichana Sudjairak — AI-focused Full Stack Developer",
+  title: "Chaichana Sudjairak — AI-focused Senior Full-Stack Developer",
   description:
-    "Project hub of Chaichana Sudjairak, an AI-focused full stack developer building web products, data visualizations, automation tools, and real-time collaborative systems.",
+    "Project hub of Chaichana Sudjairak, an AI-focused senior full-stack developer building web products, data visualizations, automation tools, and real-time collaborative systems.",
   url: "https://sudjairakc.github.io",
   ogImage: "/images/og-image.png",
 };

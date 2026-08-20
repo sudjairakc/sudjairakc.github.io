@@ -4,13 +4,13 @@ import type {Content} from "./types";
 
 export const th: Content = {
   meta: {
-    title: "Chaichana Sudjairak — AI-focused Full Stack Developer",
+    title: "Chaichana Sudjairak — AI-focused Senior Full-Stack Developer",
     description:
       "ศูนย์รวมโปรเจกต์ของ Chaichana Sudjairak นักพัฒนา Full Stack สาย AI ผู้สร้างเว็บโปรดักต์ งาน data visualization เครื่องมืออัตโนมัติ และระบบทำงานร่วมกันแบบเรียลไทม์"
   },
 
   common: {
-    role: "Full Stack Developer สาย AI",
+    role: "Senior Full-Stack Developer สาย AI",
     location: "ประเทศไทย"
   },
 
@@ -31,7 +31,7 @@ export const th: Content = {
     viewGithub: "ดูบน GitHub",
     jumpTo: "ไปยัง:",
     jumpChips: ["Portfolio", "Election Data Viz", "SyncTune"],
-    cardRole: "Full Stack Developer · ประเทศไทย"
+    cardRole: "Senior Full-Stack Developer · ประเทศไทย"
   },
 
   featured: {
@@ -56,7 +56,7 @@ export const th: Content = {
     ],
     openWebsite: "เปิดเว็บไซต์",
     viewRepository: "ดู Repository",
-    cardRole: "Full Stack Developer · ประเทศไทย",
+    cardRole: "Senior Full-Stack Developer · ประเทศไทย",
     stats: ["5+ ปีประสบการณ์", "ส่งมอบงานแบบครบวงจร"]
   },
 
@@ -162,7 +162,7 @@ export const th: Content = {
   projects: [
     {
       eyebrow: "เว็บไซต์ส่วนตัว",
-      title: "Portfolio — Full Stack Developer Profile",
+      title: "Portfolio — Senior Full-Stack Developer Profile",
       shortTitle: "Portfolio",
       description:
         "พอร์ตโฟลิโอ Astro + Tailwind ที่เรียบสะอาด นำเสนอทักษะ ประสบการณ์ การศึกษา โปรเจกต์ที่คัดสรร เรซูเม่ และช่องทางติดต่อ",
