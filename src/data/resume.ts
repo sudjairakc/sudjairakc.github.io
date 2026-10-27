@@ -4,7 +4,7 @@
 // content/en.ts (LinkedIn's About is too long for the résumé).
 
 export const resume = {
-  name: "Chaichana James Sudjairak",
+  name: "Chaichana Sudjairak",
   headline:
     "Senior Full-Stack Developer at FIN Insurance Broker | Co-leading a Go microservices rewrite | Go · React Native · Next.js · AI-assisted delivery",
 
