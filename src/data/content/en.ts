@@ -179,7 +179,7 @@ export const en: Content = {
     ],
     stats: [
       {value: "50", label: "districts"},
-      {value: "65 → 69", label: "seats compared"},
+      {value: "65 → 69", label: "election years compared (B.E.)"},
       {value: "27", label: "changed hands"},
       {value: "32", label: "repeat winners"}
     ],

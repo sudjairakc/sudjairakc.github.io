@@ -6,7 +6,7 @@ export const th: Content = {
   meta: {
     title: "Chaichana Sudjairak (James) — Senior Full-Stack Developer",
     description:
-      "Senior Full-Stack Developer ที่ FIN Insurance Broker หนึ่งใน lead ของการ rewrite ระบบเป็น Go microservices ถนัด Go, React Native, Next.js, data visualization และระบบ real-time"
+      "Senior Full-Stack Developer ที่ FIN Insurance Broker ตอนนี้กำลังช่วยพาทีมย้ายระบบไปเป็น Go microservices ทำได้ตั้งแต่ Go, React Native, Next.js ไปจนถึง data visualization และระบบ real-time"
   },
 
   nav: {
@@ -15,11 +15,11 @@ export const th: Content = {
     projects: "Projects",
     contact: "Contact",
     resume: "Résumé",
-    scroll: "เลื่อนลง"
+    scroll: "เลื่อนลงมาดู"
   },
 
   top: {
-    builtBy: "ออกแบบและพัฒนาโดย",
+    builtBy: "ออกแบบและเขียนโดย",
     categories: ["Full-Stack", "Data Visualization", "Real-time"]
   },
 
@@ -34,7 +34,7 @@ export const th: Content = {
     rolePre: "Senior Full-Stack Developer",
     namePost: "Chaichana Sudjairak",
     headline:
-      "หนึ่งใน lead ของการ rewrite ระบบเป็น Go microservices ที่ FIN Insurance Broker ชอบรับผิดชอบปัญหาตั้งแต่ตั้งคำถาม จนส่งงานขึ้นใช้จริง",
+      "ตอนนี้เป็นหนึ่งในคนที่พาทีมย้ายระบบเก่าไปเป็น Go microservices อยู่ที่ FIN ครับ ชอบงานที่ได้ดูตั้งแต่ต้นจนจบ ตั้งแต่ถามว่าปัญหาจริงๆ คืออะไร ไปจนถึงวันที่มันขึ้นไปใช้งานจริง",
     contactLabels: {
       email: "Email",
       github: "GitHub",
@@ -77,7 +77,7 @@ export const th: Content = {
       {
         index: "01",
         title: "Work",
-        entries: ["Rewrite เป็น Go services", "AI assistant ใน app", "Model catalogue", "App ของ agent"],
+        entries: ["ย้ายระบบไป Go", "AI assistant ใน app", "Model catalogue", "App ที่ agent ใช้ทุกวัน"],
         href: "#work"
       },
       {
@@ -97,19 +97,19 @@ export const th: Content = {
 
   statement: {
     eyebrow: "How I work",
-    text: "ผมเริ่มจากข้อมูล ไม่ใช่ความเชื่อในห้องประชุม แก้ที่ต้นเหตุ ไม่ใช่แค่ปิด ticket และส่งงานเร็วโดยไม่ลดมาตรฐาน"
+    text: "ผมชอบเริ่มจากข้อมูล มากกว่าเชื่อตามที่คนในห้องคิดกัน เจอปัญหาก็ขุดไปให้ถึงต้น\u2060เหตุ ไม่ใช่แค่ปิด ticket ให้จบๆ ไป แล้วก็ส่งงานให้เร็ว แต่ไม่ยอมให้คุณภาพตก"
   },
 
   numbers: {
     eyebrow: "By the numbers",
-    heading: "Senior ในแบบตัวเลข",
+    heading: "ถ้าให้เล่าเป็นตัวเลข",
     items: [
-      {value: "29", label: "ระบบใน Go rewrite ที่ผมเป็นหนึ่งใน lead"},
-      {value: "220", label: "RPC ที่ผมดูแลใน service หลัก"},
-      {value: "1,200+", label: "MR ที่ merge ช่วง ก.ค.–ต.ค. 2026"},
-      {value: "664", label: "กรมธรรม์ใหม่จากการตัดสินใจด้วยข้อมูลครั้งเดียว"},
-      {value: "3×", label: "ยอดใช้งาน AI assistant ที่โตขึ้น"},
-      {value: "27 → 4", label: "API call ตอนเปิดหน้าแรกของ app"}
+      {value: "29", label: "ระบบที่กำลังย้ายไป Go ซึ่งผมเป็นหนึ่งใน lead"},
+      {value: "220", label: "RPC ใน service หลักที่ผมดูแลอยู่"},
+      {value: "1,200+", label: "MR ที่ merge ไปช่วง ก.ค.–ต.ค. 2026"},
+      {value: "664", label: "กรมธรรม์ใหม่ ที่มาจากการไปขุดข้อมูลแค่รอบเดียว"},
+      {value: "3×", label: "คนใช้ AI assistant เพิ่มขึ้นสามเท่า"},
+      {value: "27 → 4", label: "จำนวน API call ตอนเปิดหน้าแรกของ app"}
     ]
   },
 
@@ -118,35 +118,35 @@ export const th: Content = {
     category: "Work",
     title: "Senior Full-Stack Developer",
     company: "FIN Insurance Broker Co., Ltd.",
-    period: "มิ.ย. 2023 – ปัจจุบัน · เป็น Senior ตั้งแต่ ก.ค. 2026",
+    period: "มิ.ย. 2023 – ตอนนี้ · ได้ขึ้น Senior เมื่อ ก.ค. 2026",
     about: [
-      "งานของผมครอบคลุมทุกชั้น ตั้งแต่ Go services และ BFF ฝั่ง backend, React Native และ Next.js ฝั่ง frontend ไปจนถึงงานข้อมูลที่ช่วยตัดสินว่าอะไรควรสร้างตั้งแต่แรก",
-      "ผมเริ่มจากข้อมูล ไม่ใช่ความเชื่อในห้องประชุม แก้ปัญหาที่ต้นเหตุ ไม่ใช่แค่ปิด ticket และใช้ AI-assisted workflow ส่งงานได้เร็วกว่าที่ทีมเล็กปกติทำได้ โดยไม่ลดมาตรฐานการ review และ test"
+      "งานผมแทบจะทุกชั้นเลยครับ ฝั่ง backend ก็ Go services กับ BFF ฝั่ง frontend ก็ React Native กับ Next.js แล้วก็มีงานข้อมูล ที่ช่วยตอบว่าอะไรควรทำก่อน และอะไรไม่ต้องทำเลย",
+      "ผมชอบเริ่มจากข้อมูลมากกว่าความเชื่อ เจอปัญหาก็ตามไปให้ถึงต้นเหตุ และใช้ AI ช่วยให้ส่งงานได้เร็วแบบที่ทีมเล็กๆ ปกติทำไม่ทัน โดยที่ยังต้อง review และมี test ครบเหมือนเดิม"
     ],
     highlights: [
       {
-        title: "นำการ rewrite",
-        body: "เป็น 1 ใน 3 lead ที่แยก Node.js monolith ออกเป็น Go services 29 ระบบ ทีม 13 คน ดูแลชั้น BFF และ 220 RPC ใน service หลัก เขียน contract ที่ระบบอื่นใช้สร้างตาม และทำ read/write cutover ชุดแรกที่ BFF อื่นใช้เป็นแบบ"
+        title: "พาทีม rewrite ระบบ",
+        body: "ผมเป็น 1 ใน 3 lead ที่พาทีม 13 คน แยก Node.js monolith ตัวเก่าออกมาเป็น Go services รวม 29 ระบบ ส่วนที่ผมดูแลคือชั้น BFF ทั้งหมด กับ RPC อีก 220 ตัวใน service หลัก เขียน contract ให้ระบบอื่นเอาไปสร้างตาม แล้วก็ทำ read/write cutover ชุดแรก ให้ BFF ตัวอื่นๆ มีตัวอย่างไว้ทำตาม"
       },
       {
-        title: "ส่งงานในสเกลใหญ่",
-        body: "merge ไปกว่า 1,200 MR ใน 52 project ช่วง ก.ค.–ต.ค. 2026 ด้วย AI-assisted workflow และสร้าง CI dashboard กับ merge automation ที่ทำให้ทีม 12+ คนส่งงานได้ต่อเนื่อง ทั้งที่มี shared runner แค่ 6 ตัว"
+        title: "ส่งงานเยอะ แต่ไม่ลวก",
+        body: "ช่วง ก.ค.–ต.ค. 2026 merge ไปกว่า 1,200 MR ใน 52 project โดยมี AI ช่วยทำงาน แล้วพอทั้งทีมต้องแชร์ runner กันแค่ 6 ตัว ผมก็เลยทำ CI dashboard กับ merge automation ขึ้นมา ให้คนสิบกว่าคนส่งงานกันได้ไม่ติดขัด"
       },
       {
-        title: "ตัดสินใจจากข้อมูล",
-        body: "ทุกคนเชื่อว่าเราแพ้เรื่องราคา แต่พอเทียบข้อมูลคู่แข่ง 5,563 record กลับเจอว่าเราแพ้เพราะไม่มีรุ่นรถให้ขาย ราว 70% ของรุ่นที่คู่แข่งขายเราไม่มีเลย ผมสร้าง pipeline เติมส่วนที่ขาด ได้กรมธรรม์ใหม่ 664 ฉบับ โต 58% ต่อเดือนหลังเปิดใช้ และยืนยันแล้วว่าเป็นลูกค้าใหม่จริง"
+        title: "ข้อมูลบอกคนละอย่าง",
+        body: "ตอนนั้นทุกคนเชื่อว่าเราแพ้คู่แข่งเพราะราคา ผมเลยลองเอาข้อมูลคู่แข่ง 5,563 record มาเทียบดู ปรากฏว่าไม่ใช่เลย เราแพ้เพราะไม่มีรุ่นรถให้ขายต่างหาก รุ่นที่คู่แข่งขายอยู่ ราว 70% เราไม่มีเลย ผมเลยทำ pipeline เติมรุ่นที่ขาดเข้าไป ได้กรมธรรม์ใหม่ 664 ฉบับ โตเดือนละ 58% หลังเปิดใช้ และเช็กแล้วว่าเป็นลูกค้าใหม่จริงๆ ไม่ได้ย้ายมาจากรุ่นเดิม"
       },
       {
-        title: "Full-stack ครบทุกชั้น",
-        body: "สร้าง AI assistant ใน app ที่ออกใบเสนอราคาจริงได้จากในแชท (ยอดใช้งานโต 3 เท่า) ทำให้ splash ของ app จาก 2 วินาทีเหลือไม่ถึง 1 วินาที API call ตอนเปิดหน้าแรกจาก 27 ครั้งเหลือ 4 ครั้ง และขนาดดาวน์โหลดบน Android จาก ~48 MB เหลือ ~25 MB พร้อมทำ feature ที่สร้างรายได้บนระบบเก่าไปพร้อมกับการ rewrite"
+        title: "ทำได้ทุกชั้น",
+        body: "ทำ AI assistant ใน app ที่ออกใบเสนอราคาจริงได้จากในแชท คนใช้เพิ่มขึ้น 3 เท่า ไล่ปรับ app จนหน้า splash จาก 2 วินาทีเหลือไม่ถึงวินาที หน้าแรกเรียก API จาก 27 ครั้งเหลือ 4 ครั้ง ไฟล์ Android จาก ~48 MB เหลือ ~25 MB ระหว่างนั้นก็ยังทำ feature ที่หาเงินให้บริษัทบนระบบเก่าไปด้วย"
       },
       {
-        title: "แก้ที่ต้นเหตุ",
-        body: "หาต้นเหตุ crash บน Android และอาการ \"เชื่อมต่อไม่ได้\" ที่มีคนแจ้งมานานจนเจอ และวางกฎความปลอดภัยให้ frontend ใหม่ที่มี test คุมไว้ ว่าห้ามมี secret ใน browser bundle และเรียกได้เฉพาะ same-origin"
+        title: "ขุดให้ถึงต้นเหตุ",
+        body: "Android crash กับอาการ \"เชื่อมต่อไม่ได้\" ที่มีคนแจ้งเข้ามานาน ผมตามไปจนเจอต้นเหตุจริงทั้งคู่ ส่วน frontend ตัวใหม่ ผมวางกฎไว้เลยว่าห้ามมี secret หลุดไปใน browser bundle และเรียกได้แค่ same-origin โดยมี test คอยกันไม่ให้ใครเผลอทำผิด"
       },
       {
-        title: "ได้รับความไว้ใจระดับ lead",
-        body: "lead คนอื่นมอบสิทธิ์ตัดสินใจและ merge งานในส่วนของเขาให้ผม และสร้างขั้นตอนตรวจอัตราค่าคอมที่ Internal และ External Audit ใช้ปิดข้อสังเกตได้จริง"
+        title: "lead คนอื่นไว้ใจ",
+        body: "lead คนอื่นให้ผมตัดสินใจและ merge งานในส่วนของเขาได้เอง แล้วก็มีขั้นตอนตรวจอัตราค่าคอมที่ผมทำขึ้นมา ซึ่งทั้ง Internal และ External Audit ใช้ปิดข้อสังเกตได้จริง"
       }
     ],
     earlierHeading: "ก่อนหน้านี้",
@@ -155,13 +155,13 @@ export const th: Content = {
         role: "Software Developer",
         company: "Customix Co., Ltd.",
         period: "เม.ย. 2021 – พ.ค. 2023",
-        note: "พัฒนา web และ mobile app ให้แพลตฟอร์มองค์กรด้วย React, React Native, Node.js และ Go พร้อมทำ UI component library ที่ใช้ร่วมกัน"
+        note: "ทำ web กับ mobile app ให้ลูกค้าองค์กร ด้วย React, React Native, Node.js และ Go แล้วก็ทำ UI component library ไว้ให้ทีมใช้ร่วมกัน"
       },
       {
         role: "Web Developer Intern",
         company: "ClickNext Co., Ltd.",
         period: "พ.ย. 2020 – มี.ค. 2021",
-        note: "พัฒนา CMS สำหรับระบบสำนักงานประกันภัยและสหกรณ์การเงินด้วย ASP.NET"
+        note: "ฝึกงานทำ CMS ให้ระบบของสำนักงานประกันภัยกับระบบสหกรณ์ ด้วย ASP.NET"
       }
     ]
   },
@@ -171,21 +171,21 @@ export const th: Content = {
     category: "Data Visualization",
     title: "BKK Election 65 → 69",
     intro:
-      "เปลี่ยนผลเลือกตั้ง ส.ก. กรุงเทพฯ ปี 2565 และ 2569 ครบทั้ง 50 เขต ให้เป็นภาพที่อ่านเข้าใจได้ทันที ทั้งการเทียบที่นั่งแต่ละพรรค แผนที่เขต การย้ายขั้วแบบ Sankey ตารางที่ค้นหาได้ และกราฟการเปลี่ยนของคะแนน",
+      "เอาผลเลือกตั้ง ส.ก. กรุงเทพฯ ปี 65 กับปี 69 ครบทั้ง 50 เขต มาทำเป็นภาพ ให้ดูแล้วเข้าใจได้เลย ไม่ต้องไล่อ่านตาราง มีทั้งเทียบที่นั่งแต่ละพรรค แผนที่เขต Sankey ที่ดูได้ว่าใครย้ายไปไหน ตารางที่ค้นหาได้ และกราฟคะแนนที่ขยับไป",
     points: [
-      "เห็นการเปลี่ยนผู้ชนะระดับเขตและการย้ายของพรรคในหน้าเดียว",
-      "มีทั้ง Sankey, bar chart, grid map, dumbbell chart, matrix และตารางที่เรียงลำดับได้",
-      "สร้างด้วย Astro, TypeScript, vanilla DOM และ SVG ไม่ใช้ framework หนักๆ ตอน runtime"
+      "ดูได้ในหน้าเดียวว่าเขตไหนเปลี่ยนคนชนะ และพรรคไหนได้หรือเสียที่นั่ง",
+      "มี Sankey, bar chart, grid map, dumbbell chart, matrix และตารางที่กดเรียงได้",
+      "ทำด้วย Astro, TypeScript, vanilla DOM กับ SVG ล้วนๆ ไม่ได้ลาก framework หนักๆ มาด้วย"
     ],
     stats: [
       {value: "50", label: "เขต"},
-      {value: "65 → 69", label: "ที่นั่งที่เทียบ"},
-      {value: "27", label: "เปลี่ยนขั้ว"},
-      {value: "32", label: "ชนะซ้ำ"}
+      {value: "65 → 69", label: "ปีที่เอามาเทียบกัน"},
+      {value: "27", label: "เขตที่เปลี่ยนขั้ว"},
+      {value: "32", label: "คนที่ชนะซ้ำ"}
     ],
     stack: ["Astro", "TypeScript", "SVG", "Vanilla DOM"],
     links: [
-      {label: "เปิดเว็บไซต์", url: "https://sudjairakc.github.io/bkk-election-69-results-compare"},
+      {label: "เข้าไปดู", url: "https://sudjairakc.github.io/bkk-election-69-results-compare"},
       {label: "Repository", url: "https://github.com/sudjairakc/bkk-election-69-results-compare"}
     ]
   },
@@ -195,24 +195,24 @@ export const th: Content = {
     category: "Real-time Collaboration",
     title: "SyncTune",
     intro:
-      "ห้องฟังเพลงร่วมกันที่ทำนอกเวลางานให้คนในออฟฟิศ สร้างห้อง ต่อคิววิดีโอ YouTube ด้วยกัน แชท โหวตควบคุมการเล่น กด sound pad และคุยด้วย push-to-talk ช่วยให้คนใหม่เข้ากับทีมได้ตั้งแต่วันแรก",
+      "อันนี้ทำนอกเวลางานให้คนในออฟฟิศครับ เปิดห้องแล้วต่อคิวเพลงจาก YouTube ฟังด้วยกัน แชทกัน โหวตข้ามเพลง กด sound pad หรือกดค้างแล้วพูดใส่ไมค์ก็ได้ ปรากฏว่าคนที่เพิ่งเข้ามาใหม่ ก็เข้ากับทีมได้ตั้งแต่วันแรกเลย",
     points: [
-      "ไม่ต้องสมัครบัญชี เข้าห้องด้วยชื่อและ room ID",
-      "backend เป็น Go ดูแลสถานะหลายห้อง กระจายข้อมูลผ่าน WebSocket และใช้ Redis เป็น single source of truth",
-      "ใช้ WebRTC signaling สำหรับเสียง push-to-talk ฝั่งหน้าบ้านเป็น Svelte และ Vite"
+      "ไม่ต้องสมัครอะไร ใส่ชื่อกับ room ID ก็เข้าห้องได้เลย",
+      "หลังบ้านเป็น Go ดูแลหลายห้องพร้อมกัน ส่งข้อมูลหากันผ่าน WebSocket และใช้ Redis เป็นที่เก็บ state กลาง",
+      "เสียง push-to-talk ใช้ WebRTC ส่วนหน้าบ้านเป็น Svelte กับ Vite"
     ],
     stats: [],
     stack: ["Svelte", "Go", "WebSocket", "WebRTC", "Redis"],
     links: [
-      {label: "เปิดเว็บไซต์", url: "https://synctune-frontend.vercel.app"},
+      {label: "เข้าไปลองเล่น", url: "https://synctune-frontend.vercel.app"},
       {label: "Repo ฝั่ง Frontend", url: "https://github.com/sudjairakc/synctune-frontend"},
       {label: "Repo ฝั่ง Backend", url: "https://github.com/sudjairakc/synctune-backend"}
     ]
   },
 
   contact: {
-    heading: "มีไอเดียที่อยากสร้างไหม?",
-    intro: "ยินดีคุยเรื่องโปรดักต์ ระบบ และข้อมูลที่อยู่เบื้องหลัง",
+    heading: "มีอะไรอยากทำ มาคุยกันได้นะครับ",
+    intro: "จะเป็นเรื่องโปรดักต์ ระบบ หรือข้อมูลเบื้องหลัง ทักมาได้เลย",
     switchLang: "English",
     rights: "สงวนลิขสิทธิ์",
     resumeCta: "ดาวน์โหลด Résumé (PDF)"
