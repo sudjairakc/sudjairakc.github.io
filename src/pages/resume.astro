@@ -1,13 +1,14 @@
 ---
-// Printable résumé, built from the same English content as the home page.
+// Printable résumé. Name, headline, About and Experience mirror LinkedIn
+// (data/resume.ts); Skills, Projects and Education come from content/en.ts.
 // scripts/build-resume-pdf.mjs prints this page to a PDF after `astro build`.
 import "../styles/global.css";
 import { en as t } from "@data/content/en";
+import { resume as r } from "@data/resume";
 import { site, socials } from "@data/site";
 
-const w = t.work;
 const projects = [t.election, t.synctune];
-const title = `Résumé — ${site.name}`;
+const title = `Résumé — ${r.name}`;
 // One line per skill area (rows sharing an area are merged).
 const skills = t.profile.skills.rows.reduce<{ area: string; items: string[] }[]>((acc, r) => {
   const hit = acc.find((s) => s.area === r.aside);
@@ -36,9 +37,10 @@ const contacts = [
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
+      /* Page margins live on @page so every printed page gets them, not just the first. */
       @page {
         size: A4;
-        margin: 0;
+        margin: 12mm 14mm;
       }
       .paper {
         width: 210mm;
@@ -62,6 +64,10 @@ const contacts = [
       .paper .avoid {
         break-inside: avoid;
       }
+      .paper h2,
+      .paper .avoid-head > div:first-child {
+        break-after: avoid;
+      }
       @media screen and (max-width: 840px) {
         .paper {
           width: 100%;
@@ -81,6 +87,9 @@ const contacts = [
           padding: 0 !important;
         }
         .paper {
+          width: auto;
+          min-height: 0;
+          padding: 0;
           box-shadow: none !important;
           border-radius: 0 !important;
         }
@@ -100,9 +109,8 @@ const contacts = [
       <article class="paper rounded-2xl shadow-[0_40px_100px_-40px_rgba(15,23,42,0.35)]">
         <header class="flex items-start justify-between gap-6">
           <div>
-            <h1 class="text-[22pt] leading-none font-bold tracking-[-0.03em]">{site.name}</h1>
-            <p class="mt-1.5 text-[11pt] font-medium">{site.role}</p>
-            <p class="mt-2 max-w-[120mm] text-[#4b5563]">{t.profile.headline}</p>
+            <h1 class="text-[22pt] leading-none font-bold tracking-[-0.03em]">{r.name}</h1>
+            <p class="mt-2 max-w-[140mm] text-[10pt] font-medium leading-snug">{r.headline}</p>
           </div>
           <img src={site.photo} alt="" width="72" height="90" class="h-[24mm] w-[19mm] shrink-0 rounded-md object-cover object-top" />
         </header>
@@ -112,30 +120,34 @@ const contacts = [
         </ul>
 
         <section>
-          <h2>Summary</h2>
-          <p>{w.about[0]} {w.about[1]}</p>
+          <h2>About</h2>
+          <div class="space-y-1.5">
+            {r.about.intro.map((para) => <p>{para}</p>)}
+            <p>{r.about.proudLead}</p>
+            <ul class="list-disc space-y-0.5 pl-4">
+              {r.about.proud.map((item) => <li>{item}</li>)}
+            </ul>
+            <p>{r.about.howIWork}</p>
+            <p>{r.about.outside}</p>
+          </div>
         </section>
 
         <section>
           <h2>Experience</h2>
-          <div>
-            <div class="flex items-baseline justify-between gap-4">
-              <p><strong>{w.title}</strong> · {w.company}</p>
-              <p class="shrink-0 text-[8.5pt] text-[#6b7280]">Jun 2023 – Present</p>
-            </div>
-            <p class="text-[8.5pt] text-[#6b7280]">Joined as Full-Stack Developer; promoted to Senior in Jul 2026.</p>
-            <ul class="mt-1.5 list-disc space-y-0.5 pl-4">
-              {w.highlights.map((h) => <li class="avoid"><strong>{h.title}:</strong> {h.body}</li>)}
-            </ul>
-          </div>
           {
-            w.earlier.map((e) => (
-              <div class="avoid mt-3">
+            r.experience.map((e, i) => (
+              <div class:list={["avoid-head", i > 0 && "mt-3"]}>
                 <div class="flex items-baseline justify-between gap-4">
-                  <p><strong>{e.role}</strong> · {e.company}</p>
+                  <p><strong>{e.title}</strong> · {e.company}</p>
                   <p class="shrink-0 text-[8.5pt] text-[#6b7280]">{e.period}</p>
                 </div>
-                <p>{e.note}</p>
+                <p class="text-[8.5pt] text-[#6b7280]">{e.type} · {e.location}</p>
+                <ul class="mt-1.5 list-disc space-y-0.5 pl-4">
+                  {e.bullets.map((b) => {
+                    const m = b.match(/^([^:]{3,40}):\s(.*)$/s);
+                    return <li class="avoid">{m ? <><strong>{m[1]}:</strong> {m[2]}</> : b}</li>;
+                  })}
+                </ul>
               </div>
             ))
           }
