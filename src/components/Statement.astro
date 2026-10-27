@@ -1,19 +1,36 @@
 ---
 // One huge sentence whose words fill from grey to ink as it scrolls past
-// (the scroll script drives [data-words]). Words are split with Intl.Segmenter
-// so Thai, which has no spaces between words, splits correctly too.
+// (the scroll script drives [data-words]). Lines may only break at the spaces
+// in the copy: each space-separated phrase is kept whole, so Thai never splits
+// mid-phrase ("ที|ละใบ"). Inside a phrase, Intl.Segmenter finds the words to
+// light up, since Thai has no spaces between words.
 import { getContent } from "@data/i18n";
 
 const lang = Astro.currentLocale === "th" ? "th" : "en";
 const t = getContent(lang).statement;
-const words = [...new Intl.Segmenter(lang, { granularity: "word" }).segment(t.text)].map((s) => s.segment);
+const segmenter = new Intl.Segmenter(lang, { granularity: "word" });
+const phrases = t.text
+  .split(/\s+/)
+  .filter(Boolean)
+  .map((phrase) => [...segmenter.segment(phrase)].map((s) => s.segment));
 ---
 
 <section class="sheet" aria-label={t.eyebrow}>
   <div class="mx-auto max-w-6xl py-[clamp(4rem,12vw,10rem)]">
     <p class="text-xs font-medium uppercase tracking-[0.14em] text-muted">{t.eyebrow}</p>
     <p class="display-xl mt-8" data-words>
-      {words.map((w) => (w.trim() ? <span class="word">{w}</span> : w))}
+      {
+        phrases.map((words, i) => (
+          <>
+            {i > 0 && " "}
+            <span class="whitespace-nowrap">
+              {words.map((w) => (
+                <span class="word">{w}</span>
+              ))}
+            </span>
+          </>
+        ))
+      }
     </p>
   </div>
 </section>
