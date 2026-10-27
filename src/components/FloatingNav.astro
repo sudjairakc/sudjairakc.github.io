@@ -1,0 +1,67 @@
+---
+// Frosted pill that slides in once the cover has scrolled away, and tracks the
+// section in view. Small enough that its real backdrop blur stays cheap.
+import { getContent } from "@data/i18n";
+import { site } from "@data/site";
+
+const lang = Astro.currentLocale === "th" ? "th" : "en";
+const t = getContent(lang);
+const links = [
+  { href: "#profile", label: t.nav.profile },
+  { href: "#work", label: t.nav.work },
+  { href: "#data-visualization", label: t.nav.projects, also: "#real-time" },
+  { href: "#contact", label: t.nav.contact },
+];
+---
+
+<nav
+  id="floating-nav"
+  aria-label="Sections"
+  class="glass-chip fixed top-3 left-1/2 z-50 flex max-w-[calc(100vw-1.5rem)] -translate-x-1/2 -translate-y-[150%] items-center gap-0.5 overflow-x-auto rounded-full p-1 text-[0.8125rem] opacity-0 transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] data-[shown]:translate-y-0 data-[shown]:opacity-100 md:top-5"
+>
+  <a href="#top" class="rounded-full px-3 py-1.5 font-semibold tracking-[-0.03em]">{site.handle}</a>
+  {
+    links.map((l) => (
+      <a
+        href={l.href}
+        data-also={l.also}
+        class="nav-link hidden rounded-full px-3 py-1.5 whitespace-nowrap text-muted transition-colors hover:text-ink data-[active]:bg-white/80 data-[active]:text-ink data-[active]:shadow-sm sm:block"
+      >
+        {l.label}
+      </a>
+    ))
+  }
+  <a href={site.resumePage} class="ml-0.5 rounded-full bg-ink px-3.5 py-1.5 whitespace-nowrap text-white">{t.nav.resume}</a>
+</nav>
+
+<script>
+  const nav = document.getElementById("floating-nav");
+  const cover = document.getElementById("top");
+  if (nav && cover) {
+    new IntersectionObserver(([e]) => nav.toggleAttribute("data-shown", !e.isIntersecting), {
+      rootMargin: "-30% 0px 0px 0px",
+    }).observe(cover);
+
+    const links = [...nav.querySelectorAll<HTMLAnchorElement>(".nav-link")];
+    const owner = new Map<string, HTMLAnchorElement>();
+    links.forEach((a) => {
+      owner.set(a.getAttribute("href")!.slice(1), a);
+      const also = a.dataset.also;
+      if (also) owner.set(also.slice(1), a);
+    });
+    const spy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          links.forEach((a) => a.removeAttribute("data-active"));
+          owner.get(e.target.id)?.setAttribute("data-active", "");
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    owner.forEach((_, id) => {
+      const el = document.getElementById(id);
+      if (el) spy.observe(el);
+    });
+  }
+</script>

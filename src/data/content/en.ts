@@ -9,6 +9,15 @@ export const en: Content = {
       "Senior Full-Stack Developer at FIN Insurance Broker, co-leading a Go microservices rewrite. Go, React Native, Next.js, data visualization, and real-time systems."
   },
 
+  nav: {
+    profile: "Profile",
+    work: "Work",
+    projects: "Projects",
+    contact: "Contact",
+    resume: "Résumé",
+    scroll: "Scroll"
+  },
+
   top: {
     builtBy: "Designed & built by",
     categories: ["Full-Stack", "Data Visualization", "Real-time"]
@@ -187,6 +196,7 @@ export const en: Content = {
     heading: "Have an idea worth building?",
     intro: "I'm happy to talk about products, systems, and the data behind them.",
     switchLang: "ภาษาไทย",
-    rights: "All rights reserved."
+    rights: "All rights reserved.",
+    resumeCta: "Download résumé (PDF)"
   }
 };

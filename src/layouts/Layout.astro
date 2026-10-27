@@ -97,6 +97,7 @@ const jsonLd = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#eef0f4" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
@@ -143,29 +144,50 @@ const jsonLd = {
 
   </head>
   <body>
+    <div class="aurora" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
     <slot />
 
-    <!-- Scroll reveal: fade-up elements tagged `.reveal` as they enter view. -->
+    <!-- Scroll reveal (+ stagger index) and count-up for numeric stats. -->
     <script is:inline>
       (() => {
+        document.querySelectorAll("[data-stagger]").forEach((group) => {
+          [...group.children].forEach((child, i) => child.style.setProperty("--i", String(i)));
+        });
+
         const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const els = document.querySelectorAll(".reveal");
+        const counters = document.querySelectorAll("[data-count]");
         if (reduce || !("IntersectionObserver" in window)) {
           els.forEach((el) => el.classList.add("is-visible"));
           return;
         }
+
+        const countUp = (el) => {
+          const target = Number(el.dataset.count);
+          const start = performance.now();
+          const dur = 1200;
+          const tick = (now) => {
+            const p = Math.min(1, (now - start) / dur);
+            el.textContent = String(Math.round(target * (1 - Math.pow(1 - p, 3))));
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        };
+
         const io = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                io.unobserve(entry.target);
-              }
+              if (!entry.isIntersecting) return;
+              const el = entry.target;
+              if (el.classList.contains("reveal")) el.classList.add("is-visible");
+              if (el.dataset.count) countUp(el);
+              io.unobserve(el);
             });
           },
           { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
         );
         els.forEach((el) => io.observe(el));
+        counters.forEach((el) => io.observe(el));
       })();
     </script>
   </body>

@@ -6,29 +6,46 @@ import { site } from "@data/site";
 const lang = Astro.currentLocale === "th" ? "th" : "en";
 const t = getContent(lang);
 const year = new Date().getFullYear();
+const letters = [...site.handle];
 ---
 
-<header class="sheet flex min-h-[100svh] flex-col">
+<header class="sheet mt-3 flex min-h-[calc(100svh-1.5rem)] flex-col md:mt-6 md:min-h-[calc(100svh-3rem)]" id="top">
   <SheetMeta />
 
   <div class="flex flex-1 flex-col items-center justify-center pt-16 pb-8 text-center">
-    <h1 class="wordmark select-none">{site.handle}</h1>
-    <span class="mt-8 block h-24 w-px bg-ink md:mt-10 md:h-36" aria-hidden="true"></span>
+    <h1 class="wordmark select-none" aria-label={site.handle}>
+      {letters.map((ch, i) => <span class="letter" style={`--i:${i}`} aria-hidden="true">{ch}</span>)}
+    </h1>
+    <span class="draw-down mt-8 block h-24 w-px bg-ink md:mt-10 md:h-36" aria-hidden="true"></span>
 
-    <p class="mt-8 text-base font-medium md:text-lg">{t.cover.name}</p>
-    <p class="mt-1 text-sm text-muted">{t.cover.role}</p>
-    <p class="mt-5 text-xs text-muted">
-      {year}<br />{t.cover.caption}
-    </p>
+    <div class="fade-late">
+      <p class="mt-8 text-base font-medium md:text-lg">{t.cover.name}</p>
+      <p class="mt-1 text-sm text-muted">{t.cover.role}</p>
+      <p class="mt-5 text-xs text-muted">
+        {year}<br />{t.cover.caption}
+      </p>
 
-    <nav class="mt-10 flex gap-3 text-xs text-muted" aria-label="Language">
-      <a href="/" class:list={["underline-link", lang === "en" && "text-ink"]} hreflang="en" lang="en"
-        >EN</a
-      >
-      <span aria-hidden="true">/</span>
-      <a href="/th/" class:list={["underline-link", lang === "th" && "text-ink"]} hreflang="th" lang="th"
-        >ไทย</a
-      >
-    </nav>
+      <nav class="glass-chip mt-10 inline-flex gap-1 rounded-full p-1 text-xs" aria-label="Language">
+        <a
+          href="/"
+          class:list={["rounded-full px-3 py-1.5 transition-colors", lang === "en" ? "bg-ink text-white" : "text-muted hover:text-ink"]}
+          hreflang="en"
+          lang="en"
+          aria-current={lang === "en" ? "page" : undefined}>EN</a
+        >
+        <a
+          href="/th/"
+          class:list={["rounded-full px-3 py-1.5 transition-colors", lang === "th" ? "bg-ink text-white" : "text-muted hover:text-ink"]}
+          hreflang="th"
+          lang="th"
+          aria-current={lang === "th" ? "page" : undefined}>ไทย</a
+        >
+      </nav>
+    </div>
   </div>
+
+  <a href="#profile" class="fade-late mx-auto flex flex-col items-center gap-2 text-[0.6875rem] text-faint hover:text-ink">
+    {t.nav.scroll}
+    <span class="bob block" aria-hidden="true">↓</span>
+  </a>
 </header>

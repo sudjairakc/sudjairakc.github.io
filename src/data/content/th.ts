@@ -9,6 +9,15 @@ export const th: Content = {
       "Senior Full-Stack Developer ที่ FIN Insurance Broker หนึ่งใน lead ของการ rewrite ระบบเป็น Go microservices ถนัด Go, React Native, Next.js, data visualization และระบบ real-time"
   },
 
+  nav: {
+    profile: "Profile",
+    work: "Work",
+    projects: "Projects",
+    contact: "Contact",
+    resume: "Résumé",
+    scroll: "เลื่อนลง"
+  },
+
   top: {
     builtBy: "ออกแบบและพัฒนาโดย",
     categories: ["Full-Stack", "Data Visualization", "Real-time"]
@@ -187,6 +196,7 @@ export const th: Content = {
     heading: "มีไอเดียที่อยากสร้างไหม?",
     intro: "ยินดีคุยเรื่องโปรดักต์ ระบบ และข้อมูลที่อยู่เบื้องหลัง",
     switchLang: "English",
-    rights: "สงวนลิขสิทธิ์"
+    rights: "สงวนลิขสิทธิ์",
+    resumeCta: "ดาวน์โหลด Résumé (PDF)"
   }
 };

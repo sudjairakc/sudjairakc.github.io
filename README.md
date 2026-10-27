@@ -1,6 +1,6 @@
 # sudjairakc.github.io
 
-Personal site of **Chaichana Sudjairak (James)** — Senior Full-Stack Developer. A single-page, editorial "printed portfolio" layout in English (`/`) and Thai (`/th/`): cover, profile (education · experience · skills), index, work at FIN Insurance Broker, a Bangkok election data visualization, and SyncTune (a real-time collaborative music app).
+Personal site of **Chaichana Sudjairak (James)** — Senior Full-Stack Developer. A single-page, editorial portfolio of frosted-glass sheets on a drifting colour field in English (`/`) and Thai (`/th/`): cover, profile (education · experience · skills), index, work at FIN Insurance Broker, a Bangkok election data visualization, and SyncTune (a real-time collaborative music app).
 
 This site replaces the old `sudjairakc.github.io/portfolio/`; that repo now only serves redirects to here.
 
@@ -16,7 +16,7 @@ This site replaces the old `sudjairakc.github.io/portfolio/`; that repo now only
 ```bash
 npm install
 npm run dev      # http://localhost:4321
-npm run build    # output → dist/
+npm run build    # output → dist/ (also prints /resume/ to dist/resume/Chaichana-Sudjairak-Resume.pdf)
 npm run preview  # preview the production build
 ```
 
@@ -30,14 +30,32 @@ src/
 │  ├─ site.ts               # identity, photo, socials
 │  ├─ i18n.ts               # locale resolver
 │  └─ content/{en,th}.ts    # ALL copy lives here (types.ts = shape; en.ts is authoritative)
-├─ components/              # Cover, Profile, Index, Work, Project, Contact, SheetMeta, SectionHead
-└─ pages/index.astro, th/index.astro
+├─ components/              # Cover, FloatingNav, Profile, Index, Work, Project, Contact, SheetMeta, SectionHead
+└─ pages/index.astro, th/index.astro, resume.astro
+scripts/build-resume-pdf.mjs  # dist/resume/ → PDF after astro build
 public/
 ├─ images/profile.webp · og-image.png
 ├─ favicon.svg
 ├─ robots.txt · sitemap.xml # SEO
 └─ llms.txt                 # AEO (answer-engine summary)
 ```
+
+## Résumé
+
+`/resume/` is a printable A4 page built from the same English content as the home
+page (`src/data/content/en.ts`), so the résumé never drifts from the site. After
+`astro build`, `scripts/build-resume-pdf.mjs` opens it in headless Chrome
+(`puppeteer-core`, no bundled browser) and saves the PDF next to it. It looks for
+Chrome via `CHROME_PATH` or the usual macOS/Linux paths; GitHub's ubuntu runners
+already ship Chrome. Locally without Chrome it skips the PDF; in CI it fails.
+
+## Motion and performance
+
+Glass is faked with translucent sheets over a drifting radial-gradient field, not
+`backdrop-filter`, which re-blurs everything behind it on every scroll frame (see
+the `perf(bg)` commits). Only small elements (nav pill, chips, cards) use a real
+backdrop blur. Everything animated is transform/opacity, and
+`prefers-reduced-motion` turns it all off.
 
 ## SEO / AEO
 

@@ -11,7 +11,7 @@ const contacts = [
   { label: p.contactLabels.email, text: socials.email, href: `mailto:${socials.email}` },
   { label: p.contactLabels.github, text: "github.com/sudjairakc", href: socials.github },
   { label: p.contactLabels.linkedin, text: "linkedin.com/in/sudjairakc", href: socials.linkedin },
-  { label: p.contactLabels.resume, text: "Google Drive", href: socials.resume },
+  { label: p.contactLabels.resume, text: "PDF", href: site.resumePage },
 ];
 ---
 
@@ -21,15 +21,17 @@ const contacts = [
   <div class="mt-16 grid gap-14 md:mt-24 md:grid-cols-2 md:gap-10 lg:gap-16">
     <!-- Left: portrait, role → name, contact -->
     <div class="reveal">
-      <img
-        src={site.photo}
-        alt={p.photoAlt}
-        width="720"
-        height="1019"
-        loading="lazy"
-        decoding="async"
-        class="aspect-[4/5] w-full max-w-[17rem] bg-rule object-cover object-top"
-      />
+      <figure class="group glass-chip w-full max-w-[17rem] rounded-[1.75rem] p-2 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:-translate-y-1 hover:rotate-[-1deg]">
+        <img
+          src={site.photo}
+          alt={p.photoAlt}
+          width="720"
+          height="1019"
+          loading="lazy"
+          decoding="async"
+          class="aspect-[4/5] w-full rounded-[1.35rem] bg-rule object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-[1.03]"
+        />
+      </figure>
 
       <h2 id="profile-name" class="mt-10 text-[clamp(1.75rem,4vw,2.5rem)] leading-[1.25] tracking-[-0.03em]">
         <span class="block font-light">{p.rolePre}</span>
@@ -59,14 +61,14 @@ const contacts = [
     </div>
 
     <!-- Right: education / experience / skills tables -->
-    <div class="reveal space-y-11 md:pt-1">
+    <div class="space-y-11 md:pt-1" data-stagger>
       {
         tables.map((table) => (
-          <div>
+          <div class="reveal">
             <h3 class="table-heading">{table.heading}</h3>
-            <ul class="space-y-2.5 text-[0.8125rem] text-muted">
+            <ul class="space-y-1 text-[0.8125rem] text-muted">
               {table.rows.map((row) => (
-                <li class="grid grid-cols-[1fr_auto] items-baseline gap-6">
+                <li class="-mx-3 grid grid-cols-[1fr_auto] items-baseline gap-6 rounded-xl px-3 py-1 transition-colors duration-300 hover:bg-white/70 hover:text-ink">
                   <span>{row.label}</span>
                   <span class="whitespace-nowrap tabular-nums">{row.aside}</span>
                 </li>

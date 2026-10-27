@@ -1,0 +1,178 @@
+---
+// Printable résumé, built from the same English content as the home page.
+// scripts/build-resume-pdf.mjs prints this page to a PDF after `astro build`.
+import "../styles/global.css";
+import { en as t } from "@data/content/en";
+import { site, socials } from "@data/site";
+
+const w = t.work;
+const projects = [t.election, t.synctune];
+const title = `Résumé — ${site.name}`;
+// One line per skill area (rows sharing an area are merged).
+const skills = t.profile.skills.rows.reduce<{ area: string; items: string[] }[]>((acc, r) => {
+  const hit = acc.find((s) => s.area === r.aside);
+  hit ? hit.items.push(r.label) : acc.push({ area: r.aside, items: [r.label] });
+  return acc;
+}, []);
+const contacts = [
+  { text: "sudjairakc.github.io", href: site.url },
+  { text: socials.email, href: `mailto:${socials.email}` },
+  { text: "linkedin.com/in/sudjairakc", href: socials.linkedin },
+  { text: "github.com/sudjairakc", href: socials.github },
+  { text: site.location },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={`Résumé of ${site.name}, ${site.role}.`} />
+    <link rel="canonical" href={new URL(site.resumePage, site.url).href} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      .paper {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 12mm 14mm;
+        background: #fff;
+        font-size: 9pt;
+        line-height: 1.4;
+        color: #111;
+      }
+      .paper h2 {
+        font-size: 8pt;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #6b7280;
+        border-bottom: 1px solid #e5e7eb;
+        padding-bottom: 1.5mm;
+        margin: 4.5mm 0 2.5mm;
+      }
+      .paper .avoid {
+        break-inside: avoid;
+      }
+      @media screen and (max-width: 840px) {
+        .paper {
+          width: 100%;
+          min-height: 0;
+          padding: 1.5rem 1.25rem;
+        }
+      }
+      @media print {
+        body {
+          background: #fff;
+        }
+        .no-print,
+        .aurora {
+          display: none !important;
+        }
+        .paper-wrap {
+          padding: 0 !important;
+        }
+        .paper {
+          box-shadow: none !important;
+          border-radius: 0 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="aurora" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+    <div class="no-print glass-chip sticky top-3 z-10 mx-auto mt-3 flex w-fit items-center gap-1 rounded-full p-1 text-[0.8125rem] md:top-5 md:mt-5">
+      <a href="/" class="rounded-full px-3.5 py-1.5 text-muted hover:text-ink">← {site.handle}</a>
+      <button type="button" onclick="window.print()" class="rounded-full px-3.5 py-1.5 text-muted hover:text-ink">Print</button>
+      <a href={site.resumePdf} download class="rounded-full bg-ink px-3.5 py-1.5 text-white">Download PDF ↓</a>
+    </div>
+
+    <main class="paper-wrap flex justify-center px-3 py-6 md:py-10">
+      <article class="paper rounded-2xl shadow-[0_40px_100px_-40px_rgba(15,23,42,0.35)]">
+        <header class="flex items-start justify-between gap-6">
+          <div>
+            <h1 class="text-[22pt] leading-none font-bold tracking-[-0.03em]">{site.name}</h1>
+            <p class="mt-1.5 text-[11pt] font-medium">{site.role}</p>
+            <p class="mt-2 max-w-[120mm] text-[#4b5563]">{t.profile.headline}</p>
+          </div>
+          <img src={site.photo} alt="" width="72" height="90" class="h-[24mm] w-[19mm] shrink-0 rounded-md object-cover object-top" />
+        </header>
+
+        <ul class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-[8.5pt] text-[#374151]">
+          {contacts.map((c) => <li>{c.href ? <a href={c.href}>{c.text}</a> : c.text}</li>)}
+        </ul>
+
+        <section>
+          <h2>Summary</h2>
+          <p>{w.about[0]} {w.about[1]}</p>
+        </section>
+
+        <section>
+          <h2>Experience</h2>
+          <div>
+            <div class="flex items-baseline justify-between gap-4">
+              <p><strong>{w.title}</strong> · {w.company}</p>
+              <p class="shrink-0 text-[8.5pt] text-[#6b7280]">Jun 2023 – Present</p>
+            </div>
+            <p class="text-[8.5pt] text-[#6b7280]">Joined as Full-Stack Developer; promoted to Senior in Jul 2026.</p>
+            <ul class="mt-1.5 list-disc space-y-0.5 pl-4">
+              {w.highlights.map((h) => <li class="avoid"><strong>{h.title}:</strong> {h.body}</li>)}
+            </ul>
+          </div>
+          {
+            w.earlier.map((e) => (
+              <div class="avoid mt-3">
+                <div class="flex items-baseline justify-between gap-4">
+                  <p><strong>{e.role}</strong> · {e.company}</p>
+                  <p class="shrink-0 text-[8.5pt] text-[#6b7280]">{e.period}</p>
+                </div>
+                <p>{e.note}</p>
+              </div>
+            ))
+          }
+        </section>
+
+        <section class="avoid">
+          <h2>Projects</h2>
+          <ul class="space-y-1.5">
+            {
+              projects.map((p) => (
+                <li class="avoid">
+                  <p>
+                    <strong>{p.title}</strong> · {p.category} · <a href={p.links[0].url}>{p.links[0].url.replace("https://", "")}</a>
+                    <span class="text-[8.5pt] text-[#6b7280]"> · {p.stack.join(", ")}</span>
+                  </p>
+                  <p>{p.intro}</p>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <div class="avoid grid grid-cols-1 gap-x-8 sm:grid-cols-[1.6fr_1fr]">
+          <section class="avoid">
+            <h2>Skills</h2>
+            <ul class="space-y-1">
+              {skills.map((g) => <li><span class="text-[#6b7280]">{g.area}:</span> {g.items.join(", ")}</li>)}
+            </ul>
+          </section>
+          <section class="avoid">
+            <h2>Education</h2>
+            <p><strong>Burapha University</strong></p>
+            <p>B.Sc. Computer Science · GPA 3.31</p>
+            <p class="text-[8.5pt] text-[#6b7280]">Aug 2017 – Apr 2021</p>
+          </section>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>

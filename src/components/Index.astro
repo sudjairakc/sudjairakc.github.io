@@ -14,18 +14,23 @@ const t = getContent(Astro.currentLocale);
       <span class="mt-1 block text-lg leading-none" aria-hidden="true">/</span>
     </div>
 
-    <!-- Items fade to grey while another one is hovered, like the inactive page in print. -->
-    <ol class="group/index grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+    <ol class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
       {
         t.index.items.map((item) => (
           <li class="reveal">
             <a
               href={item.href}
-              class="block transition-colors duration-200 group-hover/index:text-faint hover:!text-ink focus-visible:!text-ink"
+              class="group glass-chip relative block h-full overflow-hidden rounded-[1.75rem] p-6 transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-30px_rgba(15,23,42,0.45)] md:p-7"
             >
-              <span class="numeral block">{item.index}</span>
-              <span class="mt-6 block text-xl font-semibold tracking-[-0.02em]">{item.title}</span>
-              <span class="mt-3 block space-y-1.5 text-[0.8125rem]">
+              <span class="ink-shift numeral block">{item.index}</span>
+              <span class="mt-6 flex items-center justify-between gap-3 text-xl font-semibold tracking-[-0.02em]">
+                {item.title}
+                <span
+                  class="text-base text-faint transition-transform duration-500 group-hover:translate-x-1 group-hover:text-ink"
+                  aria-hidden="true">→</span
+                >
+              </span>
+              <span class="mt-3 block space-y-1.5 text-[0.8125rem] text-muted">
                 {item.entries.map((e) => (
                   <span class="block">{e}</span>
                 ))}

@@ -11,11 +11,10 @@ const links = [
   { label: "GitHub", href: socials.github },
   { label: "LinkedIn", href: socials.linkedin },
   { label: "GitLab", href: socials.gitlab },
-  { label: "Résumé", href: socials.resume },
 ];
 ---
 
-<footer class="sheet pb-10" id="contact" aria-labelledby="contact-heading">
+<footer class="sheet mb-3 pb-10 md:mb-6" id="contact" aria-labelledby="contact-heading">
   <div class="mt-16 grid gap-6 md:mt-24 md:grid-cols-[10rem_1fr]">
     <p class="text-xs font-medium uppercase tracking-[0.14em] text-muted">Contact</p>
     <div>
@@ -25,10 +24,16 @@ const links = [
       <p class="mt-4 max-w-xl text-sm text-muted">{t.contact.intro}</p>
       <a
         href={`mailto:${socials.email}`}
-        class="underline-link mt-8 inline-block text-[clamp(1.125rem,2.5vw,1.5rem)] font-medium tracking-[-0.02em]"
+        class="group mt-8 inline-block text-[clamp(1.25rem,3vw,2rem)] font-medium tracking-[-0.03em]"
       >
-        {socials.email}
+        <span class="ink-shift">{socials.email}</span>
       </a>
+      <div class="mt-8">
+        <a href={site.resumePdf} download class="btn btn-ink">
+          {t.contact.resumeCta}
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
       <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted">
         {
           links.map((l) => (

@@ -3,6 +3,7 @@
 // language from Astro.currentLocale (set by the route), so this is identical
 // across / (en) and /th/.
 import Cover from "@components/Cover.astro";
+import FloatingNav from "@components/FloatingNav.astro";
 import Profile from "@components/Profile.astro";
 import Index from "@components/Index.astro";
 import Work from "@components/Work.astro";
@@ -13,6 +14,7 @@ import { getContent } from "@data/i18n";
 const t = getContent(Astro.currentLocale);
 ---
 
+<FloatingNav />
 <Cover />
 <main>
   <Profile />

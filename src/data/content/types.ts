@@ -35,6 +35,15 @@ export interface ProjectSection {
 export interface Content {
   meta: {title: string; description: string};
 
+  nav: {
+    profile: string;
+    work: string;
+    projects: string;
+    contact: string;
+    resume: string;
+    scroll: string;
+  };
+
   top: {
     builtBy: string;
     categories: string[];
@@ -82,5 +91,6 @@ export interface Content {
     intro: string;
     switchLang: string;
     rights: string;
+    resumeCta: string;
   };
 }

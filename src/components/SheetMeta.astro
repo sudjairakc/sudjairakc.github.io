@@ -7,9 +7,9 @@ const t = getContent(Astro.currentLocale);
 const year = new Date().getFullYear();
 ---
 
-<div class="meta grid grid-cols-3 gap-4" aria-hidden="true">
+<div class="meta grid grid-cols-2 gap-4 sm:grid-cols-3" aria-hidden="true">
   <p>{year}</p>
-  <p class="text-center">
+  <p class="hidden text-center sm:block">
     {t.top.builtBy}<br />
     {site.name}
   </p>

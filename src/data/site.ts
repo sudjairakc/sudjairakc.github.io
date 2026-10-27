@@ -9,6 +9,9 @@ export const site = {
   url: "https://sudjairakc.github.io",
   ogImage: "/images/og-image.png",
   photo: "/images/profile.webp",
+  // Generated at build time from /resume/ by scripts/build-resume-pdf.mjs.
+  resumePage: "/resume/",
+  resumePdf: "/resume/Chaichana-Sudjairak-Resume.pdf",
 };
 
 export const socials = {
@@ -17,6 +20,4 @@ export const socials = {
   gitlab: "https://gitlab.com/sudjairakc",
   facebook: "https://www.facebook.com/chaichana.sudjairak",
   email: "sudjairak.c@gmail.com",
-  resume:
-    "https://drive.google.com/file/d/1KQie2ie0wg0qvmD3pWzrNw2O4j8FgyMF/view?usp=sharing",
 };

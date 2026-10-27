@@ -2,7 +2,7 @@
 
 > Senior Full-Stack Developer at FIN Insurance Broker (Thailand), co-leading the rewrite of a Node.js monolith into Go microservices across 29 systems. Works across Go, gRPC, PostgreSQL, React Native, Next.js, data visualization, and real-time systems.
 
-This is the personal site at https://sudjairakc.github.io (English) and https://sudjairakc.github.io/th/ (Thai). It replaces the older https://sudjairakc.github.io/portfolio/, which now redirects here.
+This is the personal site at https://sudjairakc.github.io (English) and https://sudjairakc.github.io/th/ (Thai). It replaces the older https://sudjairakc.github.io/portfolio/, which now redirects here. A one-page résumé is at https://sudjairakc.github.io/resume/ (PDF: https://sudjairakc.github.io/resume/Chaichana-Sudjairak-Resume.pdf).
 
 ## Work — FIN Insurance Broker (Jun 2023 – present, Senior since Jul 2026)
 
