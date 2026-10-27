@@ -18,8 +18,8 @@ const titleId = `${id}-title`;
 
   <div class="mt-12 grid gap-6 md:grid-cols-[10rem_1fr]">
     <div class="hidden md:block" aria-hidden="true"></div>
-    <div class="reveal max-w-2xl">
-      <p class="text-[0.9375rem] leading-relaxed">{p.intro}</p>
+    <div class="reveal max-w-3xl">
+      <p class="text-[clamp(1.125rem,1.7vw,1.5rem)] leading-[1.4] font-medium tracking-[-0.02em]">{p.intro}</p>
 
       {
         p.stats.length > 0 && (

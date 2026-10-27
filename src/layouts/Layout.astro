@@ -168,7 +168,8 @@ const jsonLd = {
           const dur = 1200;
           const tick = (now) => {
             const p = Math.min(1, (now - start) / dur);
-            el.textContent = String(Math.round(target * (1 - Math.pow(1 - p, 3))));
+            const v = Math.round(target * (1 - Math.pow(1 - p, 3)));
+            el.textContent = v.toLocaleString("en-US") + (el.dataset.suffix || "");
             if (p < 1) requestAnimationFrame(tick);
           };
           requestAnimationFrame(tick);
@@ -188,6 +189,41 @@ const jsonLd = {
         );
         els.forEach((el) => io.observe(el));
         counters.forEach((el) => io.observe(el));
+
+        // Scroll-linked effects, one rAF per frame:
+        // cover recedes (--c), statement words fill in (.on), spec numbers zoom (--z).
+        const cover = document.querySelector("[data-cover-scrub]");
+        const statements = [...document.querySelectorAll("[data-words]")].map((el) => ({
+          el,
+          words: [...el.querySelectorAll(".word")],
+        }));
+        const zooms = [...document.querySelectorAll("[data-zoom]")];
+        const clamp = (v) => Math.max(0, Math.min(1, v));
+        let queued = false;
+        const update = () => {
+          queued = false;
+          const vh = window.innerHeight;
+          if (cover) cover.style.setProperty("--c", clamp(window.scrollY / (vh * 0.9)).toFixed(3));
+          statements.forEach(({ el, words }) => {
+            const r = el.getBoundingClientRect();
+            const p = clamp((vh * 0.8 - r.top) / (r.height + vh * 0.25));
+            const lit = Math.round(p * words.length);
+            words.forEach((w, i) => w.classList.toggle("on", i < lit));
+          });
+          zooms.forEach((el) => {
+            const r = el.getBoundingClientRect();
+            el.style.setProperty("--z", clamp((vh - r.top) / (vh * 0.45)).toFixed(3));
+          });
+        };
+        const onScroll = () => {
+          if (!queued) {
+            queued = true;
+            requestAnimationFrame(update);
+          }
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
+        update();
       })();
     </script>
   </body>

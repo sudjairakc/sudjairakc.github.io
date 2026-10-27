@@ -15,8 +15,9 @@ const w = getContent(Astro.currentLocale).work;
 
   <div class="mt-12 grid gap-6 md:grid-cols-[10rem_1fr]">
     <div class="hidden md:block" aria-hidden="true"></div>
-    <div class="reveal max-w-2xl space-y-4 text-[0.9375rem] leading-relaxed">
-      {w.about.map((para) => <p>{para}</p>)}
+    <div class="reveal max-w-3xl space-y-5 text-[clamp(1.125rem,1.7vw,1.5rem)] leading-[1.4] font-medium tracking-[-0.02em]">
+      {/* about[1] is already the big Statement sheet above; the résumé uses both. */}
+      <p>{w.about[0]}</p>
     </div>
   </div>
 
@@ -26,8 +27,8 @@ const w = getContent(Astro.currentLocale).work;
         <li class="reveal group -mx-3 grid gap-3 rounded-2xl border-b border-rule px-3 py-7 transition-colors duration-300 hover:bg-white/60 md:-mx-5 md:grid-cols-[10rem_1fr] md:gap-6 md:px-5">
           <p class="text-xs tabular-nums text-faint transition-colors group-hover:text-ink">{String(i + 1).padStart(2, "0")}</p>
           <div class="grid gap-2 lg:grid-cols-[14rem_1fr] lg:gap-10">
-            <h3 class="ink-shift text-[0.9375rem] font-semibold tracking-[-0.01em]">{h.title}</h3>
-            <p class="max-w-2xl text-sm leading-relaxed text-muted">{h.body}</p>
+            <h3 class="ink-shift text-[clamp(1.125rem,1.6vw,1.375rem)] font-semibold leading-tight tracking-[-0.03em]">{h.title}</h3>
+            <p class="max-w-2xl text-[0.9375rem] leading-relaxed text-muted">{h.body}</p>
           </div>
         </li>
       ))

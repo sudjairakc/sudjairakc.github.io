@@ -1,0 +1,19 @@
+---
+// One huge sentence whose words fill from grey to ink as it scrolls past
+// (the scroll script drives [data-words]). Words are split with Intl.Segmenter
+// so Thai, which has no spaces between words, splits correctly too.
+import { getContent } from "@data/i18n";
+
+const lang = Astro.currentLocale === "th" ? "th" : "en";
+const t = getContent(lang).statement;
+const words = [...new Intl.Segmenter(lang, { granularity: "word" }).segment(t.text)].map((s) => s.segment);
+---
+
+<section class="sheet" aria-label={t.eyebrow}>
+  <div class="mx-auto max-w-6xl py-[clamp(4rem,12vw,10rem)]">
+    <p class="text-xs font-medium uppercase tracking-[0.14em] text-muted">{t.eyebrow}</p>
+    <p class="display-xl mt-8" data-words>
+      {words.map((w) => (w.trim() ? <span class="word">{w}</span> : w))}
+    </p>
+  </div>
+</section>

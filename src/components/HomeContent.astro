@@ -6,6 +6,8 @@ import Cover from "@components/Cover.astro";
 import FloatingNav from "@components/FloatingNav.astro";
 import Profile from "@components/Profile.astro";
 import Index from "@components/Index.astro";
+import Statement from "@components/Statement.astro";
+import Numbers from "@components/Numbers.astro";
 import Work from "@components/Work.astro";
 import Project from "@components/Project.astro";
 import Contact from "@components/Contact.astro";
@@ -19,6 +21,8 @@ const t = getContent(Astro.currentLocale);
 <main>
   <Profile />
   <Index />
+  <Statement />
+  <Numbers />
   <Work />
   <Project project={t.election} id="data-visualization" />
   <Project project={t.synctune} id="real-time" />

@@ -71,6 +71,17 @@ export interface Content {
     items: {index: string; title: string; entries: string[]; href: string}[];
   };
 
+  statement: {
+    eyebrow: string;
+    text: string;
+  };
+
+  numbers: {
+    eyebrow: string;
+    heading: string;
+    items: Stat[];
+  };
+
   work: {
     index: string;
     category: string;

@@ -95,6 +95,24 @@ export const th: Content = {
     ]
   },
 
+  statement: {
+    eyebrow: "How I work",
+    text: "ผมเริ่มจากข้อมูล ไม่ใช่ความเชื่อในห้องประชุม แก้ที่ต้นเหตุ ไม่ใช่แค่ปิด ticket และส่งงานเร็วโดยไม่ลดมาตรฐาน"
+  },
+
+  numbers: {
+    eyebrow: "By the numbers",
+    heading: "Senior ในแบบตัวเลข",
+    items: [
+      {value: "29", label: "ระบบใน Go rewrite ที่ผมเป็นหนึ่งใน lead"},
+      {value: "220", label: "RPC ที่ผมดูแลใน service หลัก"},
+      {value: "1,200+", label: "MR ที่ merge ช่วง ก.ค.–ต.ค. 2026"},
+      {value: "664", label: "กรมธรรม์ใหม่จากการตัดสินใจด้วยข้อมูลครั้งเดียว"},
+      {value: "3×", label: "ยอดใช้งาน AI assistant ที่โตขึ้น"},
+      {value: "27 → 4", label: "API call ตอนเปิดหน้าแรกของ app"}
+    ]
+  },
+
   work: {
     index: "01",
     category: "Work",

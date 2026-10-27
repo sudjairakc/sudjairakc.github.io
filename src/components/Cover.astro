@@ -12,7 +12,7 @@ const letters = [...site.handle];
 <header class="sheet mt-3 flex min-h-[calc(100svh-1.5rem)] flex-col md:mt-6 md:min-h-[calc(100svh-3rem)]" id="top">
   <SheetMeta />
 
-  <div class="flex flex-1 flex-col items-center justify-center pt-16 pb-8 text-center">
+  <div class="cover-scrub flex flex-1 flex-col items-center justify-center pt-16 pb-8 text-center" data-cover-scrub>
     <h1 class="wordmark select-none" aria-label={site.handle}>
       {letters.map((ch, i) => <span class="letter" style={`--i:${i}`} aria-hidden="true">{ch}</span>)}
     </h1>

@@ -95,6 +95,24 @@ export const en: Content = {
     ]
   },
 
+  statement: {
+    eyebrow: "How I work",
+    text: "I start with the data, not the opinion in the room. I fix things at the root, not the ticket. And I ship fast without lowering the bar."
+  },
+
+  numbers: {
+    eyebrow: "By the numbers",
+    heading: "Senior, in numbers.",
+    items: [
+      {value: "29", label: "systems in the Go rewrite I co-lead"},
+      {value: "220", label: "RPCs I own in the core service"},
+      {value: "1,200+", label: "MRs merged, Jul–Oct 2026"},
+      {value: "664", label: "new policies from one data-driven call"},
+      {value: "3×", label: "growth in AI-assistant usage"},
+      {value: "27 → 4", label: "API calls to open the app's home screen"}
+    ]
+  },
+
   work: {
     index: "01",
     category: "Work",
