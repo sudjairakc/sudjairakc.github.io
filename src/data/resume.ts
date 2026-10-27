@@ -1,29 +1,12 @@
 // Résumé copy that must match the LinkedIn profile (linkedin.com/in/sudjairakc)
-// word for word: name, headline, About and Experience. Update this file whenever
-// LinkedIn changes. Skills, Projects and Education come from content/en.ts.
+// word for word: name, headline and Experience. Update this file whenever
+// LinkedIn changes. The short Summary, Skills, Projects and Education come from
+// content/en.ts (LinkedIn's About is too long for the résumé).
 
 export const resume = {
   name: "Chaichana James Sudjairak",
   headline:
     "Senior Full-Stack Developer at FIN Insurance Broker | Co-leading a Go microservices rewrite | Go · React Native · Next.js · AI-assisted delivery",
-
-  about: {
-    intro: [
-      "I'm James, a full-stack developer who likes owning a problem from the question to the shipped result.",
-      "At FIN Insurance Broker, I joined in 2023 and was promoted to Senior in 2026. My work spans the whole stack: Go services and BFFs on the backend, React Native and Next.js on the front, and the data work that decides what is worth building in the first place.",
-    ],
-    proudLead: "A few things I'm proud of:",
-    proud: [
-      "Co-leading the rewrite of an ageing Node.js monolith into Go services across 29 systems, writing the contracts and patterns the rest of the team built on.",
-      "Showing, with 5,563 competitor records, that we were losing on coverage, not price, then building the pipeline that turned the gap into new business.",
-      "Building an in-app AI assistant that issues real insurance quotations from a chat.",
-      "Making our agent app start more than twice as fast and halving its Android download size.",
-    ],
-    howIWork:
-      "How I work: I start with the data, not the opinion in the room. I fix things at the root rather than closing the ticket. And I use AI-assisted workflows to ship at a pace a small team normally can't, without lowering the bar on review and tests.",
-    outside:
-      "Outside work, I built a real-time collaborative music app for the office, because a team that has fun together works better together.",
-  },
 
   experience: [
     {

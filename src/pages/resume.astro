@@ -1,6 +1,6 @@
 ---
-// Printable résumé. Name, headline, About and Experience mirror LinkedIn
-// (data/resume.ts); Skills, Projects and Education come from content/en.ts.
+// Printable résumé. Name, headline and Experience mirror LinkedIn (data/resume.ts);
+// Summary, Skills, Projects and Education come from content/en.ts.
 // scripts/build-resume-pdf.mjs prints this page to a PDF after `astro build`.
 import "../styles/global.css";
 import { en as t } from "@data/content/en";
@@ -40,15 +40,15 @@ const contacts = [
       /* Page margins live on @page so every printed page gets them, not just the first. */
       @page {
         size: A4;
-        margin: 12mm 14mm;
+        margin: 10mm 13mm;
       }
       .paper {
         width: 210mm;
         min-height: 297mm;
         padding: 12mm 14mm;
         background: #fff;
-        font-size: 9pt;
-        line-height: 1.4;
+        font-size: 8.75pt;
+        line-height: 1.36;
         color: #111;
       }
       .paper h2 {
@@ -59,7 +59,7 @@ const contacts = [
         color: #6b7280;
         border-bottom: 1px solid #e5e7eb;
         padding-bottom: 1.5mm;
-        margin: 4.5mm 0 2.5mm;
+        margin: 3.5mm 0 2mm;
       }
       .paper .avoid {
         break-inside: avoid;
@@ -120,16 +120,8 @@ const contacts = [
         </ul>
 
         <section>
-          <h2>About</h2>
-          <div class="space-y-1.5">
-            {r.about.intro.map((para) => <p>{para}</p>)}
-            <p>{r.about.proudLead}</p>
-            <ul class="list-disc space-y-0.5 pl-4">
-              {r.about.proud.map((item) => <li>{item}</li>)}
-            </ul>
-            <p>{r.about.howIWork}</p>
-            <p>{r.about.outside}</p>
-          </div>
+          <h2>Summary</h2>
+          <p>{t.work.about[0]} {t.work.about[1]}</p>
         </section>
 
         <section>
