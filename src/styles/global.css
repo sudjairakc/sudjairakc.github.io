@@ -1,21 +1,23 @@
 @import "tailwindcss";
 
 /* ── Design tokens ─────────────────────────────────────────────────────────── */
-/* Editorial layout on a soft, moving colour field with frosted-glass sheets. */
+/* Editorial layout in greyscale (paper / ink), frosted-glass sheets over a
+   slowly drifting light field. No hue on purpose. */
 @theme {
   --font-sans:
     "Inter", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --color-paper: #eef0f4;
+  --color-paper: #e4e5e8;
   --color-ink: #0a0a0a;
-  --color-muted: #5f6470;
-  --color-faint: #a3a8b3;
+  --color-muted: #616165;
+  --color-faint: #a6a6aa;
   --color-rule: rgba(15, 23, 42, 0.09);
 
-  --color-glow-blue: #93c5fd;
-  --color-glow-violet: #c4b5fd;
-  --color-glow-mint: #99f6e4;
-  --color-glow-peach: #fecdd3;
+  /* Light field: white highlights and soft greys only. */
+  --color-glow-1: #ffffff;
+  --color-glow-2: #f4f4f5;
+  --color-glow-3: #c9cbd0;
+  --color-glow-4: #fafafa;
 }
 
 /* ── Base page ─────────────────────────────────────────────────────────────── */
@@ -60,7 +62,7 @@ button:focus-visible {
   border-radius: 4px;
 }
 
-/* ── Colour field ──────────────────────────────────────────────────────────── */
+/* ── Light field ──────────────────────────────────────────────────────────── */
 /* Soft radial gradients (no filter: blur, so nothing is re-rasterised) that only
    translate — the layer stays on the compositor while it drifts. */
 .aurora {
@@ -81,19 +83,19 @@ button:focus-visible {
 .aurora span:nth-child(1) {
   top: -30vmax;
   left: -20vmax;
-  background: radial-gradient(circle, color-mix(in oklab, var(--color-glow-blue) 95%, transparent), transparent 62%);
+  background: radial-gradient(circle, color-mix(in oklab, var(--color-glow-1) 95%, transparent), transparent 62%);
 }
 .aurora span:nth-child(2) {
   top: 10vh;
   right: -30vmax;
-  background: radial-gradient(circle, color-mix(in oklab, var(--color-glow-violet) 90%, transparent), transparent 62%);
+  background: radial-gradient(circle, color-mix(in oklab, var(--color-glow-3) 85%, transparent), transparent 62%);
   animation-duration: 34s;
   animation-delay: -8s;
 }
 .aurora span:nth-child(3) {
   bottom: -35vmax;
   left: 10vw;
-  background: radial-gradient(circle, color-mix(in oklab, var(--color-glow-mint) 90%, transparent), transparent 62%);
+  background: radial-gradient(circle, color-mix(in oklab, var(--color-glow-2) 95%, transparent), transparent 62%);
   animation-duration: 40s;
   animation-delay: -16s;
 }
@@ -102,7 +104,7 @@ button:focus-visible {
   left: -25vmax;
   width: 50vmax;
   height: 50vmax;
-  background: radial-gradient(circle, color-mix(in oklab, var(--color-glow-peach) 85%, transparent), transparent 62%);
+  background: radial-gradient(circle, color-mix(in oklab, var(--color-glow-4) 90%, transparent), transparent 62%);
   animation-duration: 46s;
 }
 @keyframes drift {
@@ -179,9 +181,9 @@ button:focus-visible {
     font-size: clamp(3.5rem, 9vw, 6rem);
   }
 
-  /* Ink that sweeps into the colour field on hover (parent needs .group). */
+  /* A silver sheen that sweeps across ink text on hover (parent needs .group). */
   .ink-shift {
-    background: linear-gradient(110deg, var(--color-ink) 0 40%, #6366f1 55%, #0ea5e9 70%, var(--color-ink) 85%);
+    background: linear-gradient(110deg, var(--color-ink) 0 40%, #9a9da5 55%, #d4d6da 62%, #9a9da5 69%, var(--color-ink) 85%);
     background-size: 260% 100%;
     background-position: 0 0;
     -webkit-background-clip: text;
