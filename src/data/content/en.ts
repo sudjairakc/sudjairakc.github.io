@@ -4,73 +4,151 @@ import type {Content} from "./types";
 
 export const en: Content = {
   meta: {
-    title: "Chaichana Sudjairak — AI-focused Senior Full-Stack Developer",
+    title: "Chaichana Sudjairak (James) — Senior Full-Stack Developer",
     description:
-      "Project hub of Chaichana Sudjairak, an AI-focused senior full-stack developer building web products, data visualizations, automation tools, and real-time collaborative systems."
+      "Senior Full-Stack Developer at FIN Insurance Broker, co-leading a Go microservices rewrite. Go, React Native, Next.js, data visualization, and real-time systems."
   },
 
-  common: {
-    role: "AI-focused Senior Full-Stack Developer",
-    location: "Thailand"
+  top: {
+    builtBy: "Designed & built by",
+    categories: ["Full-Stack", "Data Visualization", "Real-time"]
   },
 
-  nav: {
-    projects: "Projects",
-    aiFocus: "AI Focus",
-    stack: "Stack",
-    contact: "Contact",
-    viewGithub: "View GitHub"
-  },
-
-  hero: {
-    headlineHtml:
-      'Building <span class="gradient-text">intelligent</span> web products, <span class="gradient-text">data</span> stories, and <span class="gradient-text">real-time</span> systems.',
-    intro:
-      "I'm James — a senior full-stack developer turning ideas into practical products across Astro, Svelte, React, Go, TypeScript, data visualization, and real-time collaboration.",
-    exploreBtn: "Explore Projects",
-    viewGithub: "View GitHub",
-    jumpTo: "Jump to:",
-    jumpChips: ["Portfolio", "Election Data Viz", "SyncTune"],
-    cardRole: "Senior Full-Stack Developer · Thailand"
-  },
-
-  featured: {
-    eyebrow: "Selected work",
-    headingHtml:
-      'Three projects, three <span class="gradient-text">product angles</span>.',
-    intro:
-      "A professional developer profile, a civic data visualization, and a real-time collaborative music app."
+  cover: {
+    name: "Chaichana Sudjairak (James)",
+    role: "Senior Full-Stack Developer",
+    caption: "Portfolio"
   },
 
   profile: {
-    eyebrow: "01 · Portfolio",
-    headingHtml:
-      'A developer profile built to communicate <span class="gradient-text">capability</span>, speed, and ownership.',
-    intro:
-      "The portfolio site introduces James as a senior full-stack developer with experience across frontend, mobile, backend, data, and infrastructure. It is built with Astro and Tailwind, optimized as a static site, and structured so profile content can be updated from a single data source.",
-    points: [
-      "Presents professional profile, skills, education, work experience, projects, and contact.",
-      "Uses Astro static generation for speed and GitHub Pages deployment.",
-      "Uses Tailwind CSS v4 for a modern responsive interface.",
-      "Includes dark mode, splash screen, social links, and resume access."
+    photoAlt: "Portrait of Chaichana Sudjairak",
+    rolePre: "Senior Full-Stack Developer",
+    namePost: "Chaichana Sudjairak",
+    headline:
+      "Co-leading a Go microservices rewrite at FIN Insurance Broker. I like owning a problem from the question to the shipped result.",
+    contactLabels: {
+      email: "Email",
+      github: "GitHub",
+      linkedin: "LinkedIn",
+      resume: "Résumé"
+    },
+    education: {
+      heading: "Education",
+      rows: [
+        {
+          label: "Burapha University — B.Sc. Computer Science (GPA 3.31)",
+          aside: "17.08–21.04"
+        }
+      ]
+    },
+    experience: {
+      heading: "Experience",
+      rows: [
+        {label: "FIN Insurance Broker — Senior Full-Stack Developer", aside: "26.07–"},
+        {label: "FIN Insurance Broker — Full-Stack Developer", aside: "23.06–26.07"},
+        {label: "Customix — Software Developer", aside: "21.04–23.05"},
+        {label: "ClickNext — Web Developer Intern", aside: "20.11–21.03"}
+      ]
+    },
+    skills: {
+      heading: "Skills",
+      rows: [
+        {label: "Go, gRPC, PostgreSQL, MySQL / MariaDB", aside: "Backend"},
+        {label: "Node.js, Redis, WebSocket, WebRTC", aside: "Backend"},
+        {label: "React Native, Next.js, React, TypeScript", aside: "Frontend"},
+        {label: "Astro, Svelte, Tailwind CSS, SVG charts", aside: "Web & Data"},
+        {label: "GitLab CI, GitHub Actions, Kubernetes, Docker, AWS", aside: "Infra"}
+      ]
+    }
+  },
+
+  index: {
+    heading: "Index",
+    items: [
+      {
+        index: "01",
+        title: "Work",
+        entries: ["Go services rewrite", "In-app AI assistant", "Model catalogue", "Agent app"],
+        href: "#work"
+      },
+      {
+        index: "02",
+        title: "Data Visualization",
+        entries: ["BKK Election 65 → 69"],
+        href: "#data-visualization"
+      },
+      {
+        index: "03",
+        title: "Real-time Collaboration",
+        entries: ["SyncTune"],
+        href: "#real-time"
+      }
+    ]
+  },
+
+  work: {
+    index: "01",
+    category: "Work",
+    title: "Senior Full-Stack Developer",
+    company: "FIN Insurance Broker Co., Ltd.",
+    period: "Jun 2023 – Present · Senior since Jul 2026",
+    about: [
+      "My work spans the whole stack: Go services and BFFs on the backend, React Native and Next.js on the front, and the data work that decides what is worth building in the first place.",
+      "I start with the data, not the opinion in the room. I fix things at the root rather than closing the ticket. And I use AI-assisted workflows to ship at a pace a small team normally can't, without lowering the bar on review and tests."
     ],
-    openWebsite: "Open Website",
-    viewRepository: "View Repository",
-    cardRole: "Senior Full-Stack Developer · Thailand",
-    stats: ["5+ yrs experience", "End-to-end delivery"]
+    highlights: [
+      {
+        title: "Rewrite leadership",
+        body: "One of three leads splitting a Node.js monolith into Go services across 29 systems and 13 developers. I own the BFF layer and 220 RPCs in the core service, wrote the contracts other systems were built against, and shipped the first read and write cutovers that the other BFFs followed."
+      },
+      {
+        title: "Delivery at scale",
+        body: "Merged 1,200+ MRs across 52 projects in Jul–Oct 2026 with an AI-assisted workflow, and built the CI dashboard and merge automation that kept 12+ developers shipping on 6 shared runners."
+      },
+      {
+        title: "Data-driven product call",
+        body: "The room believed we lost on price. Matching 5,563 competitor records showed the real gap was coverage, as we did not list ~70% of competitor trims. I built the pipeline that filled it: 664 new policies, 58% month-over-month growth after launch, confirmed as new business."
+      },
+      {
+        title: "Full-stack, end to end",
+        body: "Built the in-app AI assistant that issues real quotations from chat (usage grew 3×). Cut app splash from 2s to under 1s, home-screen API calls from 27 to 4, and Android download from ~48 MB to ~25 MB. Kept revenue features shipping on legacy during the rewrite."
+      },
+      {
+        title: "Root-cause fixes",
+        body: "Traced long-standing Android crashes and \"cannot connect\" reports to their real causes. Set test-enforced security rules for the new frontend: no secrets in the browser bundle, same-origin calls only."
+      },
+      {
+        title: "Trusted at lead level",
+        body: "Fellow leads delegated decisions and merge authority over their areas to me. Built the commission-rate review process that Internal and External Audit accepted to close their finding."
+      }
+    ],
+    earlierHeading: "Earlier",
+    earlier: [
+      {
+        role: "Software Developer",
+        company: "Customix Co., Ltd.",
+        period: "Apr 2021 – May 2023",
+        note: "Web and mobile apps for enterprise platforms with React, React Native, Node.js, and Go, plus a shared UI component library."
+      },
+      {
+        role: "Web Developer Intern",
+        company: "ClickNext Co., Ltd.",
+        period: "Nov 2020 – Mar 2021",
+        note: "A dynamic CMS for insurance-bureau and financial-cooperative systems in ASP.NET."
+      }
+    ]
   },
 
   election: {
-    eyebrow: "02 · Data Visualization",
-    headingHtml:
-      'Turning complex election results into <span class="gradient-text">visual stories</span> people can scan.',
+    index: "02",
+    category: "Data Visualization",
+    title: "BKK Election 65 → 69",
     intro:
-      "This project compares Bangkok council election results from 2022 to 2026 across all 50 districts. It translates political and district-level changes into interactive visualizations, including party seat comparison, district maps, Sankey-style transitions, searchable tables, and score movement charts.",
+      "Bangkok council election results from 2022 to 2026 across all 50 districts, turned into visual stories people can scan: party seat comparison, district maps, Sankey-style transitions, searchable tables, and score movement charts.",
     points: [
-      "Compares 50 Bangkok districts between 2022 and 2026.",
-      "Shows district-level winner changes and party/group movement.",
-      "Includes Sankey, bar charts, grid map, dumbbell chart, matrix, and sortable table.",
-      "Built with Astro, TypeScript, vanilla DOM, and SVG without a heavy runtime framework."
+      "District-level winner changes and party movement in one view.",
+      "Sankey, bar charts, grid map, dumbbell chart, matrix, and a sortable table.",
+      "Astro, TypeScript, vanilla DOM, and SVG, with no heavy runtime framework."
     ],
     stats: [
       {value: "50", label: "districts"},
@@ -78,115 +156,37 @@ export const en: Content = {
       {value: "27", label: "changed hands"},
       {value: "32", label: "repeat winners"}
     ],
-    openWebsite: "Open Website",
-    viewRepository: "View Repository"
-  },
-
-  synctune: {
-    eyebrow: "03 · Real-time Collaboration",
-    headingHtml:
-      'A shared music room powered by <span class="gradient-text">WebSocket</span>, WebRTC, and Redis.',
-    intro:
-      "SyncTune is an experimental real-time music collaboration app. Users can create a room, add YouTube videos to a shared queue, chat with others, vote on playback actions, trigger sound effects, and use push-to-talk voice. The frontend is built with Svelte and Vite, while the backend uses Go, WebSocket broadcasting, and Redis as the single source of truth.",
-    points: [
-      "Real-time shared music queue with YouTube playback.",
-      "No account required: users join with a name and room ID.",
-      "Chat, online users, queue history, sound pad, vote modal, and voice PTT.",
-      "Backend handles multi-room state, WebSocket broadcasting, Redis persistence, and WebRTC signaling."
-    ],
-    openWebsite: "Open Website",
-    frontendRepo: "Frontend Repo",
-    backendRepo: "Backend Repo"
-  },
-
-  ai: {
-    eyebrow: "Build philosophy",
-    headingHtml:
-      '<span class="gradient-text">AI-assisted</span>, product-minded engineering',
-    intro:
-      "I use AI as a development multiplier — not just to generate code, but to explore architecture, refine UX, debug faster, and turn rough ideas into shipped products. The projects here reflect a practical workflow: define the problem, shape the interface, build the system, and iterate with real usage.",
-    appliesTo: "Applies to",
-    philosophy: [
-      {
-        title: "Product Thinking",
-        caption: "From vague idea to usable interface",
-        applies: "Portfolio · SyncTune"
-      },
-      {
-        title: "Data Understanding",
-        caption: "From raw data to visual insight",
-        applies: "BKK Election"
-      },
-      {
-        title: "System Design",
-        caption: "From single-user UI to real-time multi-user state",
-        applies: "SyncTune backend"
-      },
-      {
-        title: "Automation Ready",
-        caption:
-          "Built with static deployment, GitHub Actions, and content workflows in mind",
-        applies: "Landing page · Portfolio"
-      }
+    stack: ["Astro", "TypeScript", "SVG", "Vanilla DOM"],
+    links: [
+      {label: "Open website", url: "https://sudjairakc.github.io/bkk-election-69-results-compare"},
+      {label: "Repository", url: "https://github.com/sudjairakc/bkk-election-69-results-compare"}
     ]
   },
 
-  stack: {
-    eyebrow: "Tech stack",
-    headingHtml:
-      'The <span class="gradient-text">tools</span> behind the work.',
-    groups: [
-      {label: "Frontend"},
-      {label: "Backend & Real-time"},
-      {label: "Data & Visualization"},
-      {label: "Infra & Tools"}
+  synctune: {
+    index: "03",
+    category: "Real-time Collaboration",
+    title: "SyncTune",
+    intro:
+      "A shared music room built on my own time for the office. Create a room, queue YouTube videos together, chat, vote on playback, trigger the sound pad, and talk with push-to-talk. It made new joiners part of the room from day one.",
+    points: [
+      "No account needed: join with a name and a room ID.",
+      "Go backend with multi-room state, WebSocket broadcasting, and Redis as the single source of truth.",
+      "WebRTC signaling for push-to-talk voice; Svelte and Vite on the front."
+    ],
+    stats: [],
+    stack: ["Svelte", "Go", "WebSocket", "WebRTC", "Redis"],
+    links: [
+      {label: "Open website", url: "https://synctune-frontend.vercel.app"},
+      {label: "Frontend repo", url: "https://github.com/sudjairakc/synctune-frontend"},
+      {label: "Backend repo", url: "https://github.com/sudjairakc/synctune-backend"}
     ]
   },
 
   contact: {
-    eyebrow: "Get in touch",
-    headingHtml:
-      'Have an idea worth <span class="gradient-text">building</span>?',
-    intro:
-      "I'm open to discussing web products, data tools, automation workflows, and real-time systems — especially projects where AI can help move faster from idea to production.",
-    contactMe: "Contact Me",
-    github: "GitHub",
-    linkedin: "LinkedIn",
-    downloadResume: "Download Resume"
-  },
-
-  projectCard: {
-    openWebsite: "Open Website"
-  },
-
-  projects: [
-    {
-      eyebrow: "Personal Site",
-      title: "Portfolio — Senior Full-Stack Developer Profile",
-      shortTitle: "Portfolio",
-      description:
-        "A clean Astro + Tailwind portfolio presenting skills, experience, education, selected projects, resume, and contact channels.",
-      repoLabels: ["View Repository"]
-    },
-    {
-      eyebrow: "Data Visualization",
-      title: "BKK Election 65 → 69 Results Compare",
-      shortTitle: "BKK Election",
-      description:
-        "An interactive visualization comparing Bangkok council election winners across 50 districts from 2022 to 2026.",
-      repoLabels: ["View Repository"]
-    },
-    {
-      eyebrow: "Real-time App",
-      title: "SyncTune — Listen Together in Sync",
-      shortTitle: "SyncTune",
-      description:
-        "A real-time collaborative music room where friends queue YouTube videos, chat, vote, use sound pads, and talk with push-to-talk.",
-      repoLabels: ["Frontend Repo", "Backend Repo"]
-    }
-  ],
-
-  footer: {
-    copyright: "© 2026 Chaichana Sudjairak. Built with Astro & Tailwind."
+    heading: "Have an idea worth building?",
+    intro: "I'm happy to talk about products, systems, and the data behind them.",
+    switchLang: "ภาษาไทย",
+    rights: "All rights reserved."
   }
 };

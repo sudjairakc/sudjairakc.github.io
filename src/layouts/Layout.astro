@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
 import { site, socials } from "@data/site";
-import { projects } from "@data/projects";
 import { getContent } from "@data/i18n";
 
 interface Props {
@@ -24,6 +23,7 @@ const ogLocale = lang === "th" ? "th_TH" : "en_US";
 // Person + WebSite + an ItemList of projects so answer engines (and search)
 // can extract who this is, what they do, and what they've built.
 const personId = `${site.url}#person`;
+const projects = [t.election, t.synctune];
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -31,31 +31,29 @@ const jsonLd = {
       "@type": "Person",
       "@id": personId,
       name: site.name,
-      alternateName: site.displayName,
-      jobTitle: t.common.role,
+      alternateName: [site.displayName, site.handle],
+      jobTitle: site.role,
       description: description,
       url: site.url,
+      image: new URL(site.photo, site.url).href,
       email: `mailto:${socials.email}`,
       nationality: "Thai",
       address: { "@type": "PostalAddress", addressCountry: "TH" },
-      sameAs: [
-        socials.github,
-        socials.linkedin,
-        socials.gitlab,
-        socials.facebook,
-      ],
+      worksFor: { "@type": "Organization", name: "FIN Insurance Broker Co., Ltd.", url: "https://www.fininsurance.co.th/" },
+      alumniOf: { "@type": "CollegeOrUniversity", name: "Burapha University" },
+      sameAs: [socials.github, socials.linkedin, socials.gitlab, socials.facebook],
       knowsAbout: [
         "Full Stack Development",
-        "Artificial Intelligence",
-        "Web Development",
+        "Microservices",
+        "Go",
+        "gRPC",
+        "React Native",
+        "Next.js",
+        "TypeScript",
+        "Node.js",
+        "PostgreSQL",
         "Data Visualization",
         "Real-time Systems",
-        "TypeScript",
-        "Go",
-        "React",
-        "Svelte",
-        "Astro",
-        "Node.js",
         "WebSocket",
         "WebRTC",
         "Redis",
@@ -80,9 +78,9 @@ const jsonLd = {
         position: i + 1,
         item: {
           "@type": "SoftwareApplication",
-          name: t.projects[i]?.shortTitle ?? p.shortTitle,
-          description: t.projects[i]?.description ?? p.description,
-          url: p.website,
+          name: p.title,
+          description: p.intro,
+          url: p.links[0]?.url,
           applicationCategory: "WebApplication",
           operatingSystem: "Web",
           author: { "@id": personId },
@@ -115,7 +113,7 @@ const jsonLd = {
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={site.url} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL(site.ogImage, site.url).href} />
     <meta property="og:locale" content={ogLocale} />
     <meta name="twitter:card" content="summary_large_image" />
@@ -124,7 +122,7 @@ const jsonLd = {
     <meta name="author" content={site.name} />
     <meta
       name="keywords"
-      content="Chaichana Sudjairak, James, Senior Full-Stack Developer, AI Developer, Astro, Svelte, Go, TypeScript, data visualization, real-time systems, Thailand"
+      content="Chaichana Sudjairak, James, sudjairakc, Senior Full-Stack Developer, Go, gRPC, React Native, Next.js, TypeScript, microservices, data visualization, real-time systems, Thailand"
     />
     <meta name="robots" content="index, follow, max-image-preview:large" />
 
@@ -139,20 +137,10 @@ const jsonLd = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Set theme before paint to avoid a flash of the wrong mode. -->
-    <script is:inline>
-      (() => {
-        const stored = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (stored === "dark" || (!stored && prefersDark)) {
-          document.documentElement.classList.add("dark");
-        }
-      })();
-    </script>
   </head>
   <body>
     <slot />

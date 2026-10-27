@@ -1,0 +1,80 @@
+---
+import SheetMeta from "@components/SheetMeta.astro";
+import { getContent } from "@data/i18n";
+import { site, socials } from "@data/site";
+
+const t = getContent(Astro.currentLocale);
+const p = t.profile;
+const tables = [p.education, p.experience, p.skills];
+
+const contacts = [
+  { label: p.contactLabels.email, text: socials.email, href: `mailto:${socials.email}` },
+  { label: p.contactLabels.github, text: "github.com/sudjairakc", href: socials.github },
+  { label: p.contactLabels.linkedin, text: "linkedin.com/in/sudjairakc", href: socials.linkedin },
+  { label: p.contactLabels.resume, text: "Google Drive", href: socials.resume },
+];
+---
+
+<section class="sheet" id="profile" aria-labelledby="profile-name">
+  <SheetMeta />
+
+  <div class="mt-16 grid gap-14 md:mt-24 md:grid-cols-2 md:gap-10 lg:gap-16">
+    <!-- Left: portrait, role → name, contact -->
+    <div class="reveal">
+      <img
+        src={site.photo}
+        alt={p.photoAlt}
+        width="720"
+        height="1019"
+        loading="lazy"
+        decoding="async"
+        class="aspect-[4/5] w-full max-w-[17rem] bg-rule object-cover object-top"
+      />
+
+      <h2 id="profile-name" class="mt-10 text-[clamp(1.75rem,4vw,2.5rem)] leading-[1.25] tracking-[-0.03em]">
+        <span class="block font-light">{p.rolePre}</span>
+        <span class="mt-1 block">
+          <span class="mr-3 inline-block h-px w-10 bg-ink align-middle md:w-14" aria-hidden="true"></span><strong
+            class="font-bold">{p.namePost}</strong
+          >
+        </span>
+      </h2>
+
+      <p class="mt-5 max-w-md text-sm leading-relaxed text-muted">{p.headline}</p>
+
+      <dl class="mt-10 grid grid-cols-[5.5rem_1fr] gap-y-2.5 text-[0.8125rem]">
+        {
+          contacts.map((c) => (
+            <>
+              <dt class="font-semibold">{c.label}</dt>
+              <dd class="min-w-0 truncate">
+                <a href={c.href} class="underline-link text-muted hover:text-ink" target={c.href.startsWith("http") ? "_blank" : undefined} rel="noopener">
+                  {c.text}
+                </a>
+              </dd>
+            </>
+          ))
+        }
+      </dl>
+    </div>
+
+    <!-- Right: education / experience / skills tables -->
+    <div class="reveal space-y-11 md:pt-1">
+      {
+        tables.map((table) => (
+          <div>
+            <h3 class="table-heading">{table.heading}</h3>
+            <ul class="space-y-2.5 text-[0.8125rem] text-muted">
+              {table.rows.map((row) => (
+                <li class="grid grid-cols-[1fr_auto] items-baseline gap-6">
+                  <span>{row.label}</span>
+                  <span class="whitespace-nowrap tabular-nums">{row.aside}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

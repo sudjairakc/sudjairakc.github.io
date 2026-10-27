@@ -1,0 +1,52 @@
+---
+import { getContent } from "@data/i18n";
+import { site, socials } from "@data/site";
+
+const lang = Astro.currentLocale === "th" ? "th" : "en";
+const t = getContent(lang);
+const otherHref = lang === "th" ? "/" : "/th/";
+const year = new Date().getFullYear();
+
+const links = [
+  { label: "GitHub", href: socials.github },
+  { label: "LinkedIn", href: socials.linkedin },
+  { label: "GitLab", href: socials.gitlab },
+  { label: "Résumé", href: socials.resume },
+];
+---
+
+<footer class="sheet pb-10" id="contact" aria-labelledby="contact-heading">
+  <div class="mt-16 grid gap-6 md:mt-24 md:grid-cols-[10rem_1fr]">
+    <p class="text-xs font-medium uppercase tracking-[0.14em] text-muted">Contact</p>
+    <div>
+      <h2 id="contact-heading" class="text-[clamp(1.75rem,4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.035em]">
+        {t.contact.heading}
+      </h2>
+      <p class="mt-4 max-w-xl text-sm text-muted">{t.contact.intro}</p>
+      <a
+        href={`mailto:${socials.email}`}
+        class="underline-link mt-8 inline-block text-[clamp(1.125rem,2.5vw,1.5rem)] font-medium tracking-[-0.02em]"
+      >
+        {socials.email}
+      </a>
+      <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted">
+        {
+          links.map((l) => (
+            <li>
+              <a href={l.href} target="_blank" rel="noopener" class="underline-link hover:text-ink">
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="meta mt-24 flex flex-wrap items-center justify-between gap-4">
+    <p>© {year} {site.name}. {t.contact.rights}</p>
+    <a href={otherHref} class="underline-link hover:text-muted" hreflang={lang === "th" ? "en" : "th"}>
+      {t.contact.switchLang}
+    </a>
+  </div>
+</footer>

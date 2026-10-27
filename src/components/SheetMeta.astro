@@ -1,0 +1,19 @@
+---
+// The small grey header printed at the top of every sheet: year · author · categories.
+import { getContent } from "@data/i18n";
+import { site } from "@data/site";
+
+const t = getContent(Astro.currentLocale);
+const year = new Date().getFullYear();
+---
+
+<div class="meta grid grid-cols-3 gap-4" aria-hidden="true">
+  <p>{year}</p>
+  <p class="text-center">
+    {t.top.builtBy}<br />
+    {site.name}
+  </p>
+  <p class="text-right">
+    {t.top.categories.map((c) => (<>{c}<br /></>))}
+  </p>
+</div>

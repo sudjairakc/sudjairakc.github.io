@@ -1,0 +1,34 @@
+---
+import SheetMeta from "@components/SheetMeta.astro";
+import { getContent } from "@data/i18n";
+import { site } from "@data/site";
+
+const lang = Astro.currentLocale === "th" ? "th" : "en";
+const t = getContent(lang);
+const year = new Date().getFullYear();
+---
+
+<header class="sheet flex min-h-[100svh] flex-col">
+  <SheetMeta />
+
+  <div class="flex flex-1 flex-col items-center justify-center pt-16 pb-8 text-center">
+    <h1 class="wordmark select-none">{site.handle}</h1>
+    <span class="mt-8 block h-24 w-px bg-ink md:mt-10 md:h-36" aria-hidden="true"></span>
+
+    <p class="mt-8 text-base font-medium md:text-lg">{t.cover.name}</p>
+    <p class="mt-1 text-sm text-muted">{t.cover.role}</p>
+    <p class="mt-5 text-xs text-muted">
+      {year}<br />{t.cover.caption}
+    </p>
+
+    <nav class="mt-10 flex gap-3 text-xs text-muted" aria-label="Language">
+      <a href="/" class:list={["underline-link", lang === "en" && "text-ink"]} hreflang="en" lang="en"
+        >EN</a
+      >
+      <span aria-hidden="true">/</span>
+      <a href="/th/" class:list={["underline-link", lang === "th" && "text-ink"]} hreflang="th" lang="th"
+        >ไทย</a
+      >
+    </nav>
+  </div>
+</header>

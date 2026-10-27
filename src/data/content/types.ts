@@ -1,124 +1,86 @@
-/* Shared shape for every locale. en.ts is authoritative; th.ts mirrors it.
-   Headings with mid-sentence gradient emphasis are stored as `*Html` strings
-   rendered via set:html, so each language can phrase them naturally. */
+/* Shared shape for every locale. en.ts is authoritative; th.ts mirrors it. */
 
-export interface StatValueLabel {
+export interface Row {
+  label: string;
+  /** Right-aligned column: a date (YY.MM) or a short tag. */
+  aside: string;
+}
+
+export interface Highlight {
+  title: string;
+  body: string;
+}
+
+export interface Stat {
   value: string;
   label: string;
 }
 
-export interface PhilosophyCard {
-  title: string;
-  caption: string;
-  applies: string;
-}
-
-export interface TechGroupText {
+export interface Link {
   label: string;
+  url: string;
 }
 
-export interface ProjectText {
-  eyebrow: string;
+export interface ProjectSection {
+  index: string;
+  category: string;
   title: string;
-  shortTitle: string;
-  description: string;
-  repoLabels: string[];
+  intro: string;
+  points: string[];
+  stats: Stat[];
+  stack: string[];
+  links: Link[];
 }
 
 export interface Content {
   meta: {title: string; description: string};
 
-  common: {
+  top: {
+    builtBy: string;
+    categories: string[];
+  };
+
+  cover: {
+    name: string;
     role: string;
-    location: string;
-  };
-
-  nav: {
-    projects: string;
-    aiFocus: string;
-    stack: string;
-    contact: string;
-    viewGithub: string;
-  };
-
-  hero: {
-    headlineHtml: string;
-    intro: string;
-    exploreBtn: string;
-    viewGithub: string;
-    jumpTo: string;
-    jumpChips: string[];
-    cardRole: string;
-  };
-
-  featured: {
-    eyebrow: string;
-    headingHtml: string;
-    intro: string;
+    caption: string;
   };
 
   profile: {
-    eyebrow: string;
-    headingHtml: string;
-    intro: string;
-    points: string[];
-    openWebsite: string;
-    viewRepository: string;
-    cardRole: string;
-    stats: string[];
+    photoAlt: string;
+    rolePre: string;
+    namePost: string;
+    headline: string;
+    contactLabels: {email: string; github: string; linkedin: string; resume: string};
+    education: {heading: string; rows: Row[]};
+    experience: {heading: string; rows: Row[]};
+    skills: {heading: string; rows: Row[]};
   };
 
-  election: {
-    eyebrow: string;
-    headingHtml: string;
-    intro: string;
-    points: string[];
-    stats: StatValueLabel[];
-    openWebsite: string;
-    viewRepository: string;
+  index: {
+    heading: string;
+    items: {index: string; title: string; entries: string[]; href: string}[];
   };
 
-  synctune: {
-    eyebrow: string;
-    headingHtml: string;
-    intro: string;
-    points: string[];
-    openWebsite: string;
-    frontendRepo: string;
-    backendRepo: string;
+  work: {
+    index: string;
+    category: string;
+    title: string;
+    company: string;
+    period: string;
+    about: string[];
+    highlights: Highlight[];
+    earlierHeading: string;
+    earlier: {role: string; company: string; period: string; note: string}[];
   };
 
-  ai: {
-    eyebrow: string;
-    headingHtml: string;
-    intro: string;
-    appliesTo: string;
-    philosophy: PhilosophyCard[];
-  };
-
-  stack: {
-    eyebrow: string;
-    headingHtml: string;
-    groups: TechGroupText[];
-  };
+  election: ProjectSection;
+  synctune: ProjectSection;
 
   contact: {
-    eyebrow: string;
-    headingHtml: string;
+    heading: string;
     intro: string;
-    contactMe: string;
-    github: string;
-    linkedin: string;
-    downloadResume: string;
-  };
-
-  projectCard: {
-    openWebsite: string;
-  };
-
-  projects: ProjectText[];
-
-  footer: {
-    copyright: string;
+    switchLang: string;
+    rights: string;
   };
 }

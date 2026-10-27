@@ -1,25 +1,29 @@
-# Chaichana Sudjairak (James)
+# Chaichana Sudjairak (James) — sudjairakc
 
-> AI-focused Full Stack Developer from Thailand building practical web products, data visualizations, automation tools, and real-time collaborative systems. 5+ years delivering end-to-end across React, React Native, Node.js, TypeScript, and Go.
+> Senior Full-Stack Developer at FIN Insurance Broker (Thailand), co-leading the rewrite of a Node.js monolith into Go microservices across 29 systems. Works across Go, gRPC, PostgreSQL, React Native, Next.js, data visualization, and real-time systems.
 
-This is the project hub at https://sudjairakc.github.io — a showcase of three flagship projects.
+This is the personal site at https://sudjairakc.github.io (English) and https://sudjairakc.github.io/th/ (Thai). It replaces the older https://sudjairakc.github.io/portfolio/, which now redirects here.
+
+## Work — FIN Insurance Broker (Jun 2023 – present, Senior since Jul 2026)
+
+- Rewrite leadership: one of three leads splitting a Node.js monolith into Go services across 29 systems and 13 developers; owns the BFF layer and 220 RPCs in the core service.
+- Delivery at scale: merged 1,200+ MRs across 52 projects in Jul–Oct 2026 with an AI-assisted workflow; built the team's CI dashboard and merge automation.
+- Data-driven product call: matched 5,563 competitor records, found the gap was coverage rather than price, and built the pipeline that filled it (664 new policies).
+- Full-stack: in-app AI assistant that issues real quotations from chat (usage grew 3×); app splash from 2s to under 1s, home-screen API calls from 27 to 4.
+
+Earlier: Software Developer at Customix (2021–2023), Web Developer Intern at ClickNext (2020–2021).
 
 ## Projects
 
-- [Portfolio](https://sudjairakc.github.io/portfolio): Personal developer portfolio built with Astro 5 and Tailwind CSS v4. Presents skills, experience, education, projects, resume, and contact. Repo: https://github.com/sudjairakc/portfolio
-- [BKK Election 65 → 69 Results Compare](https://sudjairakc.github.io/bkk-election-69-results-compare): Interactive data visualization comparing Bangkok council (ส.ก.) election winners across all 50 districts from 2022 (2565) to 2026 (2569). Includes Sankey, bar charts, district grid, dumbbell chart, 2×2 matrix, and a sortable/searchable table. Built with Astro, TypeScript, vanilla DOM, and SVG. Repo: https://github.com/sudjairakc/bkk-election-69-results-compare
-- [SyncTune](https://synctune-frontend.vercel.app): Real-time collaborative music room. Friends join with a name and room ID (no login), queue YouTube videos, chat, vote to skip/remove, use a sound pad, and talk with push-to-talk voice. Frontend: Svelte + Vite + YouTube IFrame API + WebSocket + WebRTC. Backend: Go, Melody WebSocket, Redis as single source of truth, zerolog. Frontend repo: https://github.com/sudjairakc/synctune-frontend — Backend repo: https://github.com/sudjairakc/synctune-backend
+- [BKK Election 65 → 69](https://sudjairakc.github.io/bkk-election-69-results-compare): interactive visualization comparing Bangkok council election winners across all 50 districts from 2022 to 2026. Astro, TypeScript, vanilla DOM, SVG. Repo: https://github.com/sudjairakc/bkk-election-69-results-compare
+- [SyncTune](https://synctune-frontend.vercel.app): real-time collaborative music room with a shared YouTube queue, chat, voting, sound pad, and push-to-talk. Svelte frontend; Go backend with WebSocket, WebRTC signaling, and Redis. Repos: https://github.com/sudjairakc/synctune-frontend and https://github.com/sudjairakc/synctune-backend
 
-## Skills
+## Education
 
-- Languages: TypeScript, JavaScript (ES6+), Go
-- Frontend: Astro, Svelte, React, React Native, Next.js, Tailwind CSS
-- Backend & Real-time: Node.js, WebSocket, WebRTC, Redis, REST API
-- Data: Data visualization, SVG, interactive tables
-- Infra: GitHub Actions, GitHub Pages, Vercel, Docker, PostgreSQL, MariaDB, MongoDB, AWS
+- Burapha University — B.Sc. Computer Science, 2017–2021, GPA 3.31
 
 ## Contact
 
 - GitHub: https://github.com/sudjairakc
-- LinkedIn: https://www.linkedin.com/in/chaichana-sudjairak/
+- LinkedIn: https://www.linkedin.com/in/sudjairakc/
 - Email: sudjairak.c@gmail.com

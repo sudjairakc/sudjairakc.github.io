@@ -1,6 +1,8 @@
 # sudjairakc.github.io
 
-Project hub / landing page for **Chaichana Sudjairak (James)** — an AI-focused full stack developer. A single-page, Apple-style glassmorphism showcase of three flagship projects: a developer portfolio, a Bangkok election data visualization, and SyncTune (a real-time collaborative music app).
+Personal site of **Chaichana Sudjairak (James)** — Senior Full-Stack Developer. A single-page, editorial "printed portfolio" layout in English (`/`) and Thai (`/th/`): cover, profile (education · experience · skills), index, work at FIN Insurance Broker, a Bangkok election data visualization, and SyncTune (a real-time collaborative music app).
+
+This site replaces the old `sudjairakc.github.io/portfolio/`; that repo now only serves redirects to here.
 
 ## Stack
 
@@ -22,14 +24,16 @@ npm run preview  # preview the production build
 
 ```
 src/
-├─ layouts/Layout.astro     # <head>, SEO/OG, JSON-LD (AEO), theme + scroll-reveal scripts
-├─ styles/global.css        # design tokens + glass/pill/button component classes
+├─ layouts/Layout.astro     # <head>, SEO/OG, JSON-LD (AEO), scroll-reveal script
+├─ styles/global.css        # design tokens (paper / ink / muted) + sheet, meta, wordmark classes
 ├─ data/
-│  ├─ site.ts               # identity, socials, tech groups, philosophy
-│  └─ projects.ts           # the three showcased projects
-├─ components/              # Navbar, Hero, project cards, deep-dive showcases, etc.
-└─ pages/index.astro        # composes the page
+│  ├─ site.ts               # identity, photo, socials
+│  ├─ i18n.ts               # locale resolver
+│  └─ content/{en,th}.ts    # ALL copy lives here (types.ts = shape; en.ts is authoritative)
+├─ components/              # Cover, Profile, Index, Work, Project, Contact, SheetMeta, SectionHead
+└─ pages/index.astro, th/index.astro
 public/
+├─ images/profile.webp · og-image.png
 ├─ favicon.svg
 ├─ robots.txt · sitemap.xml # SEO
 └─ llms.txt                 # AEO (answer-engine summary)

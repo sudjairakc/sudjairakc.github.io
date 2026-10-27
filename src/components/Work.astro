@@ -1,0 +1,53 @@
+---
+import SheetMeta from "@components/SheetMeta.astro";
+import SectionHead from "@components/SectionHead.astro";
+import { getContent } from "@data/i18n";
+
+const w = getContent(Astro.currentLocale).work;
+---
+
+<section class="sheet" id="work" aria-labelledby="work-title">
+  <SheetMeta />
+
+  <SectionHead index={w.index} category={w.category} title={w.title} titleId="work-title">
+    <p class="mt-2 text-sm text-muted">{w.company} · {w.period}</p>
+  </SectionHead>
+
+  <div class="mt-12 grid gap-6 md:grid-cols-[10rem_1fr]">
+    <div class="hidden md:block" aria-hidden="true"></div>
+    <div class="reveal max-w-2xl space-y-4 text-[0.9375rem] leading-relaxed">
+      {w.about.map((para) => <p>{para}</p>)}
+    </div>
+  </div>
+
+  <ol class="mt-16 border-t border-rule">
+    {
+      w.highlights.map((h, i) => (
+        <li class="reveal grid gap-3 border-b border-rule py-7 md:grid-cols-[10rem_1fr] md:gap-6">
+          <p class="text-xs tabular-nums text-faint">{String(i + 1).padStart(2, "0")}</p>
+          <div class="grid gap-2 lg:grid-cols-[14rem_1fr] lg:gap-10">
+            <h3 class="text-[0.9375rem] font-semibold tracking-[-0.01em]">{h.title}</h3>
+            <p class="max-w-2xl text-sm leading-relaxed text-muted">{h.body}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+
+  <!-- Earlier roles: present, but deliberately quiet. -->
+  <div class="mt-14 grid gap-6 md:grid-cols-[10rem_1fr]">
+    <h3 class="text-xs font-medium uppercase tracking-[0.14em] text-faint">{w.earlierHeading}</h3>
+    <ul class="space-y-5 text-[0.8125rem] text-muted">
+      {
+        w.earlier.map((e) => (
+          <li class="max-w-2xl">
+            <p>
+              <span class="font-medium text-ink">{e.role}</span> · {e.company} · <span class="tabular-nums">{e.period}</span>
+            </p>
+            <p class="mt-1">{e.note}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

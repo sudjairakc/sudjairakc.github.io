@@ -1,25 +1,24 @@
 @import "tailwindcss";
 
-/* Dark mode driven by a `.dark` class on <html> (toggled + persisted in Layout). */
-@custom-variant dark (&:where(.dark, .dark *));
-
 /* ── Design tokens ─────────────────────────────────────────────────────────── */
+/* Editorial, single light theme: off-white paper, near-black ink, grey meta. */
 @theme {
   --font-sans:
-    "Inter", "Manrope", "SF Pro Display", "Noto Sans Thai", "LINE Seed Sans TH",
-    system-ui, -apple-system, sans-serif;
+    "Inter", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  /* AI glow palette (from brief §4) */
-  --color-glow-blue: #93c5fd;
-  --color-glow-violet: #d8b4fe;
-  --color-glow-cyan: #67e8f9;
-  --color-glow-mint: #a7f3d0;
+  --color-paper: #f7f7f7;
+  --color-sheet: #ffffff;
+  --color-ink: #0a0a0a;
+  --color-muted: #6b6b6b;
+  --color-faint: #b4b4b4;
+  --color-rule: #e2e2e2;
 }
 
 /* ── Base page ─────────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 6rem; /* clears the sticky glass navbar */
+  scroll-padding-top: 2rem;
+  color-scheme: light;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -30,213 +29,91 @@ html {
 
 body {
   min-height: 100vh;
-  color: #0f172a;
+  background: var(--color-sheet);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(147, 197, 253, 0.3), transparent 32%),
-    radial-gradient(circle at 80% 10%, rgba(216, 180, 254, 0.28), transparent 30%),
-    radial-gradient(circle at 50% 90%, rgba(167, 243, 208, 0.24), transparent 34%),
-    #f8fafc;
-  background-attachment: fixed;
-}
-
-html.dark body {
-  color: #f8fafc;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.2), transparent 32%),
-    radial-gradient(circle at 80% 10%, rgba(168, 85, 247, 0.2), transparent 30%),
-    radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.14), transparent 34%),
-    #020617;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: rgba(147, 197, 253, 0.5);
+  background: var(--color-ink);
+  color: var(--color-paper);
 }
 
-/* ── Reusable component classes ────────────────────────────────────────────── */
+a:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 @layer components {
-  /* Frosted glass surface — the core visual primitive. */
-  .glass {
-    border-radius: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.1);
+  /* One "page" of the printed portfolio: grey sheet, separated by white gaps. */
+  .sheet {
+    background: var(--color-paper);
+    padding: 1.25rem 1rem 4rem;
   }
-  html.dark .glass {
-    border-color: rgba(255, 255, 255, 0.1);
-    background: rgba(15, 23, 42, 0.85);
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  @media (min-width: 768px) {
+    .sheet {
+      padding: 1.5rem 3.5rem 6rem;
+    }
+  }
+  /* Every sheet after the cover sits on a white gap, like pages laid side by side. */
+  .sheet:not(header) {
+    margin-top: clamp(3rem, 8vw, 5rem);
   }
 
-  /* Small pill / chip used for skills, tags, secondary nav. */
-  .pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    border-radius: 9999px;
-    border: 1px solid rgba(148, 163, 184, 0.35);
-    background: rgba(255, 255, 255, 0.82);
-    padding: 0.35rem 0.85rem;
-    font-size: 0.8rem;
+  .meta {
+    font-size: 0.6875rem;
+    line-height: 1.35;
+    color: var(--color-faint);
+    letter-spacing: 0.01em;
+  }
+
+  .wordmark {
+    font-weight: 600;
+    letter-spacing: -0.075em;
+    line-height: 0.82;
+    font-size: clamp(3rem, 13.5vw, 13rem);
+    white-space: nowrap;
+  }
+
+  .numeral {
     font-weight: 500;
-    color: #334155;
-    transition:
-      transform 0.2s ease,
-      background 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-  .pill:hover {
-    transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
-  }
-  html.dark .pill {
-    border-color: rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.06);
-    color: #cbd5e1;
-  }
-  html.dark .pill:hover {
-    background: rgba(255, 255, 255, 0.12);
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+    font-size: clamp(3.5rem, 9vw, 6rem);
   }
 
-  /* Gradient text for emphasis words (AI, real-time, data). */
-  .gradient-text {
-    background-image: linear-gradient(
-      to right,
-      #0ea5e9,
-      #8b5cf6,
-      #d946ef
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  /* Eyebrow label above headlines. */
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.78rem;
+  .table-heading {
+    font-size: 0.9375rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #64748b;
-  }
-  html.dark .eyebrow {
-    color: #94a3b8;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.875rem;
   }
 
-  /* Primary CTA. */
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    border-radius: 9999px;
-    background: #0f172a;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #fff;
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
+  .underline-link {
+    text-decoration: underline;
+    text-decoration-color: var(--color-faint);
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color 150ms ease;
   }
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.28);
-  }
-  html.dark .btn-primary {
-    background: #f8fafc;
-    color: #0f172a;
-  }
-
-  /* Gradient CTA (contact section). */
-  .btn-gradient {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    border-radius: 9999px;
-    background: linear-gradient(to right, #0ea5e9, #8b5cf6);
-    padding: 0.85rem 1.75rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #fff;
-    box-shadow: 0 14px 34px rgba(139, 92, 246, 0.35);
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-  .btn-gradient:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 20px 46px rgba(139, 92, 246, 0.45);
-  }
-
-  /* Secondary / ghost button. */
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    border-radius: 9999px;
-    border: 1px solid rgba(148, 163, 184, 0.5);
-    background: rgba(255, 255, 255, 0.72);
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #334155;
-    transition:
-      transform 0.2s ease,
-      background 0.2s ease;
-  }
-  .btn-ghost:hover {
-    transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.75);
-  }
-  html.dark .btn-ghost {
-    border-color: rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.05);
-    color: #e2e8f0;
-  }
-  html.dark .btn-ghost:hover {
-    background: rgba(255, 255, 255, 0.12);
-  }
-
-  /* Section shell — consistent vertical rhythm + centered container. */
-  .section {
-    width: 100%;
-    max-width: 80rem;
-    margin-inline: auto;
-    padding-inline: 1.5rem;
-    padding-block: 5rem;
-  }
-  @media (min-width: 640px) {
-    .section {
-      padding-inline: 2rem;
-    }
-  }
-  @media (min-width: 1024px) {
-    .section {
-      padding-inline: 2.5rem;
-    }
+  .underline-link:hover {
+    text-decoration-color: var(--color-ink);
   }
 }
 
-/* ── Scroll reveal (driven by IntersectionObserver in Layout) ──────────────── */
+/* ── Scroll reveal ─────────────────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(14px);
   transition:
-    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+    opacity 600ms ease,
+    transform 600ms ease;
 }
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal {
@@ -246,47 +123,7 @@ html.dark body {
   }
 }
 
-/* ── Slow drifting background blobs (Hero) ─────────────────────────────────── */
-@keyframes drift {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(24px, -18px);
-  }
-}
-.blob {
-  animation: drift 16s ease-in-out infinite;
-  will-change: transform;
-  /* smaller blur radius = far cheaper to rasterize (Tailwind v4 var override) */
-  --tw-blur: blur(40px);
-}
-@media (prefers-reduced-motion: reduce) {
-  .blob {
-    animation: none;
-  }
-}
-
-/* ── Gentle float for hero mockup cards ────────────────────────────────────── */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-.float-slow {
-  animation: float 7s ease-in-out infinite;
-}
-.float-slower {
-  animation: float 9s ease-in-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .float-slow,
-  .float-slower {
-    animation: none;
-  }
+/* Wide letter-spacing breaks Thai glyph clusters; keep it for Latin only. */
+html[lang="th"] [class*="tracking-[0.14em]"] {
+  letter-spacing: 0;
 }
