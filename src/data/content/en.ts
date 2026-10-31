@@ -120,33 +120,37 @@ export const en: Content = {
     company: "FIN Insurance Broker Co., Ltd.",
     period: "Jun 2023 – Present · Senior since Jul 2026",
     about: [
-      "My work spans the whole stack: Go services and BFFs on the backend, React Native and Next.js on the front, and the data work that decides what is worth building in the first place.",
+      "Full-stack engineer across the whole product: Go services, BFFs and RPC contracts on the backend, React Native and Next.js on the front. I co-lead a Node.js-to-Go microservices rewrite, use data to decide what is worth building, and use AI-assisted workflows and CI automation to raise team throughput without lowering the bar on review and tests.",
       "I start with the data, not the opinion in the room. I fix things at the root rather than closing the ticket. And I use AI-assisted workflows to ship at a pace a small team normally can't, without lowering the bar on review and tests."
     ],
     highlights: [
       {
-        title: "Rewrite leadership",
-        body: "One of three leads splitting a Node.js monolith into Go services across 29 systems and 13 developers. I own the BFF layer and 220 RPCs in the core service, wrote the contracts other systems were built against, and shipped the first read and write cutovers that the other BFFs followed."
+        title: "System modernization",
+        body: "One of three leads splitting a Node.js monolith into Go microservices across 29 systems and 13 developers. I own the BFF layer and 220 RPCs in the core service, wrote the contracts other systems were built against, and shipped the first read and write cutovers that the other BFFs followed."
       },
       {
-        title: "Delivery at scale",
+        title: "Business impact from data",
+        body: "The room believed we lost on price. Matching 5,563 competitor records showed the real gap was coverage: we did not list ~70% of competitor trims. I built the pipeline that filled it: 664 new policies and 58% month-over-month growth after launch, confirmed as new business."
+      },
+      {
+        title: "App performance",
+        body: "Cut app splash from 2s to under 1s, home-screen API calls from 27 to 4, and Android download size from ~48 MB to ~25 MB."
+      },
+      {
+        title: "Product delivery",
+        body: "Built the in-app AI assistant that issues real quotations from chat (usage grew 3×). Kept revenue features shipping on legacy during the rewrite: coupon auto-apply, installment quotas, High Volume Agent."
+      },
+      {
+        title: "Technical leadership",
+        body: "Fellow leads delegated decisions and merge authority over their areas to me. Built the commission-rate review process that Internal and External Audit accepted to close their finding."
+      },
+      {
+        title: "Team throughput",
         body: "Merged 1,200+ MRs across 52 projects in Jul–Oct 2026 with an AI-assisted workflow, and built the CI dashboard and merge automation that kept 12+ developers shipping on 6 shared runners."
       },
       {
-        title: "Data-driven product call",
-        body: "The room believed we lost on price. Matching 5,563 competitor records showed the real gap was coverage, as we did not list ~70% of competitor trims. I built the pipeline that filled it: 664 new policies, 58% month-over-month growth after launch, confirmed as new business."
-      },
-      {
-        title: "Full-stack, end to end",
-        body: "Built the in-app AI assistant that issues real quotations from chat (usage grew 3×). Cut app splash from 2s to under 1s, home-screen API calls from 27 to 4, and Android download from ~48 MB to ~25 MB. Kept revenue features shipping on legacy during the rewrite."
-      },
-      {
-        title: "Root-cause fixes",
-        body: "Traced long-standing Android crashes and \"cannot connect\" reports to their real causes. Set test-enforced security rules for the new frontend: no secrets in the browser bundle, same-origin calls only."
-      },
-      {
-        title: "Trusted at lead level",
-        body: "Fellow leads delegated decisions and merge authority over their areas to me. Built the commission-rate review process that Internal and External Audit accepted to close their finding."
+        title: "Reliability and security",
+        body: "Traced long-standing Android crashes and \"cannot connect\" reports to their root causes. Set test-enforced security rules for the new frontend: no secrets in the browser bundle, same-origin calls only."
       }
     ],
     earlierHeading: "Earlier",

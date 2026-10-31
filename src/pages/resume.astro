@@ -1,6 +1,6 @@
 ---
-// Printable résumé. Name, headline and Experience mirror LinkedIn (data/resume.ts);
-// Summary, Skills, Projects and Education come from content/en.ts.
+// Printable résumé. Name, headline, Summary and Experience live in data/resume.ts;
+// Skills, Projects and Education come from content/en.ts.
 // scripts/build-resume-pdf.mjs prints this page to a PDF after `astro build`.
 import "../styles/global.css";
 import { en as t } from "@data/content/en";
@@ -121,7 +121,7 @@ const contacts = [
 
         <section>
           <h2>Summary</h2>
-          <p>{t.work.about[0]} {t.work.about[1]}</p>
+          <p>{r.summary}</p>
         </section>
 
         <section>

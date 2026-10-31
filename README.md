@@ -42,9 +42,9 @@ public/
 
 ## Résumé
 
-`/resume/` is a printable A4 page. Name, headline and Experience mirror the LinkedIn
-profile word for word and live in `src/data/resume.ts` (update it when LinkedIn
-changes); the short Summary, Skills, Projects and Education come from
+`/resume/` is a printable A4 page. Name, headline, Summary and Experience live in
+`src/data/resume.ts`, written for the résumé and ordered by impact (no longer a
+word-for-word LinkedIn mirror); Skills, Projects and Education come from
 `src/data/content/en.ts`. After
 `astro build`, `scripts/build-resume-pdf.mjs` opens it in headless Chrome
 (`puppeteer-core`, no bundled browser) and saves the PDF next to it. It looks for

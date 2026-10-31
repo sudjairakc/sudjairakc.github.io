@@ -6,10 +6,12 @@ This is the personal site at https://sudjairakc.github.io (English) and https://
 
 ## Work — FIN Insurance Broker (Jun 2023 – present, Senior since Jul 2026)
 
-- Rewrite leadership: one of three leads splitting a Node.js monolith into Go services across 29 systems and 13 developers; owns the BFF layer and 220 RPCs in the core service.
-- Delivery at scale: merged 1,200+ MRs across 52 projects in Jul–Oct 2026 with an AI-assisted workflow; built the team's CI dashboard and merge automation.
-- Data-driven product call: matched 5,563 competitor records, found the gap was coverage rather than price, and built the pipeline that filled it (664 new policies).
-- Full-stack: in-app AI assistant that issues real quotations from chat (usage grew 3×); app splash from 2s to under 1s, home-screen API calls from 27 to 4.
+- System modernization: one of three leads splitting a Node.js monolith into Go microservices across 29 systems and 13 developers; owns the BFF layer and 220 RPCs in the core service.
+- Business impact from data: matched 5,563 competitor records, found the gap was coverage rather than price, and built the pipeline that filled it (664 new policies).
+- App performance: app splash from 2s to under 1s, home-screen API calls from 27 to 4, Android download from ~48 MB to ~25 MB.
+- Product delivery: in-app AI assistant that issues real quotations from chat (usage grew 3×).
+- Technical leadership: fellow leads delegated decisions and merge authority over their areas; built the commission-rate review process accepted by Internal and External Audit.
+- Team throughput: merged 1,200+ MRs across 52 projects in Jul–Oct 2026 with an AI-assisted workflow; built the team's CI dashboard and merge automation.
 
 Earlier: Software Developer at Customix (2021–2023), Web Developer Intern at ClickNext (2020–2021).
 
